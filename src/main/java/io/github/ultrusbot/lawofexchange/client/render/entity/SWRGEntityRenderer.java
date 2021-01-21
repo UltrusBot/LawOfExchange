@@ -34,7 +34,6 @@ public class SWRGEntityRenderer extends EntityRenderer<SwiftwolfsRendingGaleProj
 
     @Override
     public void render(SwiftwolfsRendingGaleProjectileEntity entity, float yaw, float tickDelta, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light) {
-        System.out.println("SWRGEntityRenderer Called called!");
         matrices.push();
         matrices.multiply(this.dispatcher.getRotation());
         matrices.multiply(Vector3f.POSITIVE_Y.getDegreesQuaternion(180.0F));
@@ -52,7 +51,6 @@ public class SWRGEntityRenderer extends EntityRenderer<SwiftwolfsRendingGaleProj
 
 
     private static void produceVertex(VertexConsumer vertexConsumer, Matrix4f modelMatrix, Matrix3f normalMatrix, int light, float x, int y, int textureU, int textureV) {
-        System.out.println("PRODUCE VERTEX CALLED!");
         vertexConsumer.vertex(modelMatrix, x - 0.5F, (float)y - 0.25F, 0.0F).color(255, 255, 255, 255).texture((float)textureU, (float)textureV).overlay(OverlayTexture.DEFAULT_UV).light(light).normal(normalMatrix, 0.0F, 1.0F, 0.0F).next();
     }
 
