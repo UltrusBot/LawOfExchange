@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "lawofexchange:philosophers_stone"
+    },
+    {
+      "item": "lawofexchange:mobius_fuel"
+    },
+    {
+      "item": "lawofexchange:mobius_fuel"
+    },
+    {
+      "item": "lawofexchange:mobius_fuel"
+    },
+    {
+      "item": "lawofexchange:mobius_fuel"
+    }
+  ],
+  "result": {
+    "item": "lawofexchange:aeternalis_fuel",
+    "count": 1
+  }
+}

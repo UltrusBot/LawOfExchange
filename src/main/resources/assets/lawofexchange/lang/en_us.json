@@ -1,0 +1,19 @@
+{
+  "text.lawofexchange.emc": "§7EMC: §f",
+  "lawofexchange.command.setemc.success": "Set the %s of %s to %s",
+  "item.lawofexchange.philosophers_stone": "Philosopher's Stone",
+  "item.lawofexchange.dark_matter": "Dark Matter",
+  "item.lawofexchange.red_matter": "Red Matter",
+  "item.lawofexchange.dark_matter_pickaxe": "Dark Matter Pickaxe",
+  "item.lawofexchange.philosophers_stone": "Philosopher's Stone",
+  "item.lawofexchange.philosophers_stone": "Philosopher's Stone",
+  "text.lawofexchange.mode": "Mode",
+  "text.lawofexchange.pickaxe_mode_0": "Default",
+  "text.lawofexchange.pickaxe_mode_1": "3 Tall Mode",
+  "text.lawofexchange.pickaxe_mode_2": "3 Wide Mode",
+  "text.lawofexchange.pickaxe_mode_3": "3 Deep Mode",
+  "text.autoconfig.lawofexchange.title": "Philosophers Stone Mod",
+  "text.autoconfig.lawofexchange.option.darkMatterFurnaceDoubleChance": "Dark Matter Furnace Double Chance",
+  "text.lawofexchange.stored_emc": "Stored EMC: §c",
+  "block.lawofexchange.alchemical_chest": "Alchemical Chest"
+}
