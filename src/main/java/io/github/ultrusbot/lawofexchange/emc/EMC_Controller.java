@@ -1,11 +1,7 @@
 package io.github.ultrusbot.lawofexchange.emc;
 
-import com.google.common.collect.ImmutableMap.Builder;
-import com.google.common.collect.Maps;
 import io.github.ultrusbot.lawofexchange.items.ItemRegistry;
-import it.unimi.dsi.fastutil.ints.IntList;
 import net.minecraft.block.Block;
-import net.minecraft.inventory.CraftingInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -13,10 +9,9 @@ import net.minecraft.recipe.*;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.tag.BlockTags;
 import net.minecraft.tag.ItemTags;
-import net.minecraft.tag.Tag;
+import net.minecraft.util.math.MathHelper;
 
 import java.util.HashMap;
-import java.util.Map;
 
 final public class EMC_Controller {
     private static HashMap<Item, Integer> EMCValues;
@@ -43,7 +38,22 @@ final public class EMC_Controller {
         addEMCValue(Items.DIORITE, 1);
         addEMCValue(Items.BLACKSTONE, 1);
         addEMCValue(Items.END_STONE, 1);
-
+        addEMCValue(Items.WHITE_DYE, 8);
+        addEMCValue(Items.ORANGE_DYE, 8);
+        addEMCValue(Items.MAGENTA_DYE, 8);
+        addEMCValue(Items.LIGHT_BLUE_DYE, 8);
+        addEMCValue(Items.YELLOW_DYE, 8);
+        addEMCValue(Items.LIME_DYE, 8);
+        addEMCValue(Items.PINK_DYE, 8);
+        addEMCValue(Items.GRAY_DYE, 8);
+        addEMCValue(Items.LIGHT_GRAY_DYE, 8);
+        addEMCValue(Items.CYAN_DYE, 8);
+        addEMCValue(Items.PURPLE_DYE, 8);
+        addEMCValue(Items.BLUE_DYE, 8);
+        addEMCValue(Items.BROWN_DYE, 8);
+        addEMCValue(Items.GREEN_DYE, 8);
+        addEMCValue(Items.RED_DYE, 8);
+        addEMCValue(Items.BLACK_DYE, 8);
         addEMCValue(Items.STICK, 4);
         addEMCValue(Items.NETHER_BRICK, 4);
         addEMCValue(Items.SANDSTONE, 4);
@@ -57,7 +67,7 @@ final public class EMC_Controller {
         addEMCValue(Items.NETHER_WART, 24);
         addEMCValue(Items.ROTTEN_FLESH, 24);
         addEMCValue(Items.SLIME_BALL, 24);
-
+        
         addEMCValue(Items.COAL, 128);
         addEMCValue(Items.APPLE, 128);
         addEMCValue(Items.SPIDER_EYE, 128);
@@ -138,11 +148,16 @@ final public class EMC_Controller {
         for (Block block : BlockTags.FLOWERS.values()) {
             addEMCValue(block.asItem(), 16);
         }
+
     }
 
     static public int getEMC(ItemStack item) {
         Integer value = EMCValues.get(item.getItem());
-        return (value != null) ? value * item.getCount() : 0;
+        float damageDivider = 1;
+        if (item.getDamage() != 0 && item.getMaxDamage() != 0) {
+            damageDivider = ((item.getMaxDamage() - item.getDamage())/(float)item.getMaxDamage());
+        }
+        return (value != null) ? MathHelper.floor((value * item.getCount()) * damageDivider) : 0;
     }
     static public void addEMCValue(Item item, Integer integer) {
         EMCValues.put(item, integer);
