@@ -10,16 +10,19 @@ import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
+import java.util.UUID;
 
 public class SwiftwolfsRendingGaleItem extends Item implements EMCStorageItem,ProjectileItem {
     public static final AbilitySource SWIFTWOLF_ABILITY = Pal.getAbilitySource(LawOfExchangeMod.MOD_ID, "swiftwolf_rending_gale");
@@ -30,6 +33,7 @@ public class SwiftwolfsRendingGaleItem extends Item implements EMCStorageItem,Pr
     @Override
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
         super.inventoryTick(stack, world, entity, slot, selected);
+        forcefieldTick(world, entity);
         if (!(entity instanceof PlayerEntity) || slot > 8) { return; }
         if (!world.isClient) {
             PlayerEntity player = (PlayerEntity) entity;
@@ -67,6 +71,16 @@ public class SwiftwolfsRendingGaleItem extends Item implements EMCStorageItem,Pr
             }
         }
 
+    }
+    public void forcefieldTick(World world, Entity user) {
+        world.getOtherEntities(user, user.getBoundingBox().expand(11), entity -> {
+            if (!(entity instanceof LivingEntity)) {return false;}
+            Vec3d userPos = user.getPos();
+            Vec3d entityPos = entity.getPos();
+            Vec3d pushDir = ((userPos.add(entityPos).multiply(0.5D)).subtract(userPos)).multiply(0.2D);
+            entity.addVelocity(pushDir.x, pushDir.y, pushDir.z);
+            return false;
+        } );
     }
     public void setTickCount(ItemStack itemStack, int count) {
         itemStack.getOrCreateTag().putInt("tickCount", count);
