@@ -29,10 +29,8 @@ public class SwiftwolfsRendingGaleItem extends Item implements EMCStorageItem,Pr
 
     @Override
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
-        if (!(entity instanceof PlayerEntity) || slot > 8) {
-            return;
-        }
         super.inventoryTick(stack, world, entity, slot, selected);
+        if (!(entity instanceof PlayerEntity) || slot > 8) { return; }
         if (!world.isClient) {
             PlayerEntity player = (PlayerEntity) entity;
             if (getEMC(stack) != 0) {
@@ -52,9 +50,11 @@ public class SwiftwolfsRendingGaleItem extends Item implements EMCStorageItem,Pr
 
             if (player.abilities.flying) {
                 int tickCount = getTickCount(stack) + 1;
+                setFlyingState(stack, 1);
                 this.setTickCount(stack, tickCount);
                 if (this.getEMC(stack) == 0) {
                     SWIFTWOLF_ABILITY.revokeFrom(player, VanillaAbilities.ALLOW_FLYING);
+                    setFlyingState(stack, 0);
                 }
                 if (tickCount == 120) {
                     this.removeEMC(stack, 64);
@@ -62,6 +62,8 @@ public class SwiftwolfsRendingGaleItem extends Item implements EMCStorageItem,Pr
                     this.setTickCount(stack, tickCount);
                 }
 
+            } else {
+                setFlyingState(stack, 0);
             }
         }
 
@@ -105,7 +107,24 @@ public class SwiftwolfsRendingGaleItem extends Item implements EMCStorageItem,Pr
         curEMC = MathHelper.clamp(curEMC, 0, getMaxEMC());
         setEMC(itemStack, curEMC);
     }
+    public void setFlyingState(ItemStack item, int flying) {
+        if (getFlyingState(item) != flying) {
+            item.getOrCreateTag().putInt("CustomModelData", flying);
+        }
+    }
+    /*
+    0: Not Flying
+    1: Flying
+     */
+    public int getFlyingState(ItemStack item) {
+        CompoundTag tag = item.getOrCreateTag();
 
+        if (tag.isEmpty()) {
+            tag.putInt("CustomModelData", 0);
+        }
+        return tag.getInt("CustomModelData");
+
+    }
     @Override
     public void removeEMC(ItemStack itemStack, int emc) {
         this.addEMC(itemStack, -emc);
