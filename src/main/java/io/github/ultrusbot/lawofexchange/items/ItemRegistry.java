@@ -36,7 +36,7 @@ public class ItemRegistry {
     public static Item DARK_MATTER_BOOTS = new ArmorItem(LoEArmorMaterials.DARK_MATTER, EquipmentSlot.FEET, new Item.Settings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP));
     public static Item DARK_MATTER_SHEARS = new SpecialMatterShears(new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP));
     public static Item TRANSMUTATION_TABLE = new BlockItem(BlockRegistry.TRANSMUTATION_TABLE, new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP));
-
+    public static Item EXOTIC_MATTER = new Item(new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP));
     public static void register() {
         PHILOSOPHERS_STONE = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "philosophers_stone"), PHILOSOPHERS_STONE);
         ALCHEMICAL_COAL = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "alchemical_coal"), ALCHEMICAL_COAL);
@@ -57,6 +57,7 @@ public class ItemRegistry {
         DARK_MATTER_BOOTS = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "dark_matter_boots"), DARK_MATTER_BOOTS);
         DARK_MATTER_SHEARS = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "dark_matter_shears"), DARK_MATTER_SHEARS);
         TRANSMUTATION_TABLE = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "transmutation_table"), TRANSMUTATION_TABLE);
+        EXOTIC_MATTER = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "exotic_matter"), EXOTIC_MATTER);
         FuelRegistry.INSTANCE.add(ALCHEMICAL_COAL, 6400);
         FuelRegistry.INSTANCE.add(MOBIUS_FUEL, 25600);
         FuelRegistry.INSTANCE.add(AETERNALIS_FUEL, 102400);

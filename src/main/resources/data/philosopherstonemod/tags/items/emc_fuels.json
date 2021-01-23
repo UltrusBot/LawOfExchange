@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:coal",
+    "lawofexchange:alchemical_coal",
+    "lawofexchange:mobius_fuel",
+    "lawofexchange:aeternalis_fuel"
+  ]
+}

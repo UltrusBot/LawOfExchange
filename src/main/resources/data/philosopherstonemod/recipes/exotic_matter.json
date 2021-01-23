@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#N#",
+    "NRN",
+    "#N#"
+  ],
+  "key": {
+    "#": {
+      "item": "lawofexchange:aeternalis_fuel"
+    },
+    "R": {
+      "item": "lawofexchange:red_matter_block"
+    },
+    "N": {
+      "item": "minecraft:netherite_ingot"
+    }
+  },
+  "result": {
+    "item": "lawofexchange:exotic_matter",
+    "count": 1
+  }
+}
