@@ -4,6 +4,7 @@ import io.github.ultrusbot.lawofexchange.client.KeybindRegistry;
 import io.github.ultrusbot.lawofexchange.network.CustomKeybindPackets;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayerEntity;
+import net.minecraft.util.Hand;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -22,7 +23,7 @@ public class InputEventClientMixin {
     public void LOEInputEvent(CallbackInfo ci) {
         while (KeybindRegistry.projectileKey.wasPressed()) {
             if (!this.player.getMainHandStack().isEmpty() && !this.player.getItemCooldownManager().isCoolingDown(this.player.getMainHandStack().getItem())) {
-                CustomKeybindPackets.sendKeybindPacket(this.player.getMainHandStack(), KeybindRegistry.KEY.FIRE_PROJECTILE);
+                CustomKeybindPackets.sendKeybindPacket(KeybindRegistry.KEY.FIRE_PROJECTILE);
                 System.out.println("Sent out a packet!");
             }
         }

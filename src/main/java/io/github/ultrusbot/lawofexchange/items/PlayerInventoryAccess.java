@@ -4,4 +4,5 @@ import net.minecraft.item.ItemStack;
 
 public interface PlayerInventoryAccess {
     public ItemStack getKleinStarItem();
+    public ItemStack getFuelItem();
 }

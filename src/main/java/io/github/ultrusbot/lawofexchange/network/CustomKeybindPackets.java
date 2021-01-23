@@ -12,6 +12,7 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.network.packet.c2s.play.CustomPayloadC2SPacket;
+import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
 
 public class CustomKeybindPackets {
@@ -23,22 +24,22 @@ public class CustomKeybindPackets {
     }
 
     @Environment(EnvType.CLIENT)
-    public static void sendKeybindPacket(ItemStack item, KeybindRegistry.KEY key) {
+    public static void sendKeybindPacket(KeybindRegistry.KEY key) {
         PacketByteBuf buf = new PacketByteBuf(Unpooled.buffer());
-        buf.writeItemStack(item);
         buf.writeEnumConstant(key);
+
         MinecraftClient.getInstance().getNetworkHandler().getConnection().send(new CustomPayloadC2SPacket(LOE_KEYBIND_PACKET, new PacketByteBuf(buf)));
 
     }
     private static void readPacket(PacketContext context, PacketByteBuf buffer) {
-        ItemStack item = buffer.readItemStack();
         KeybindRegistry.KEY key = buffer.readEnumConstant(KeybindRegistry.KEY.class);
+        ItemStack stack = context.getPlayer().getStackInHand(Hand.MAIN_HAND);
         context.getTaskQueue().execute(() ->{
             switch(key) {
                 case FIRE_PROJECTILE:
-                    if (item.getItem() instanceof ProjectileItem) {
-                        ProjectileItem projectileItem = (ProjectileItem)item.getItem();
-                        projectileItem.shootProjectile(item, context.getPlayer().world, context.getPlayer());
+                    if (stack.getItem() instanceof ProjectileItem) {
+                        ProjectileItem projectileItem = (ProjectileItem)stack.getItem();
+                        projectileItem.shootProjectile(context.getPlayer().world, context.getPlayer(), Hand.MAIN_HAND);
                     }
                     break;
                 case CHANGE_MODE:

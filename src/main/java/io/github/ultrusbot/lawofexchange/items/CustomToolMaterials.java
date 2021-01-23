@@ -9,7 +9,11 @@ import java.util.function.Supplier;
 public enum CustomToolMaterials implements ToolMaterial {
     DARK_MATTER(4, 9999, 15.0F, 5.0F, 20, () -> {
         return Ingredient.ofItems(ItemRegistry.DARK_MATTER);
-    });
+    }),
+    RED_MATTER(5, 9999, 20.0F, 7.0F, 30, () -> {
+        return Ingredient.ofItems(ItemRegistry.DARK_MATTER);
+    });;
+
     private final int durability;
     private final int miningLevel;
     private final float miningSpeed;
@@ -18,7 +22,7 @@ public enum CustomToolMaterials implements ToolMaterial {
     private final Lazy<Ingredient> repairIngredient;
 
 
-    private CustomToolMaterials(int miningLevel, int durability, float miningSpeed, float attackDamage, int enchantability, Supplier<Ingredient> repairIngredient) {
+    CustomToolMaterials(int miningLevel, int durability, float miningSpeed, float attackDamage, int enchantability, Supplier<Ingredient> repairIngredient) {
         this.miningLevel = miningLevel;
         this.durability = durability;
         this.miningSpeed = miningSpeed;
@@ -53,6 +57,6 @@ public enum CustomToolMaterials implements ToolMaterial {
 
     @Override
     public Ingredient getRepairIngredient() {
-        return null;
+        return repairIngredient.get();
     }
 }

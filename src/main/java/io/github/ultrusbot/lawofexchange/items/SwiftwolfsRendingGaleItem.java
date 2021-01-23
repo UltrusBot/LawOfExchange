@@ -5,28 +5,26 @@ import io.github.ladysnake.pal.Pal;
 import io.github.ladysnake.pal.VanillaAbilities;
 import io.github.ultrusbot.lawofexchange.LawOfExchangeMod;
 import io.github.ultrusbot.lawofexchange.emc.EMCStorageItem;
+import io.github.ultrusbot.lawofexchange.emc.EMC_Controller;
 import io.github.ultrusbot.lawofexchange.entity.projectile.SwiftwolfsRendingGaleProjectileEntity;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.ProjectileEntity;
-import net.minecraft.entity.projectile.thrown.ThrownItemEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
-import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
-import java.util.UUID;
 
 public class SwiftwolfsRendingGaleItem extends Item implements EMCStorageItem,ProjectileItem,ModeSwitchingItem {
     public static final AbilitySource SWIFTWOLF_ABILITY = Pal.getAbilitySource(LawOfExchangeMod.MOD_ID, "swiftwolf_rending_gale");
@@ -46,15 +44,9 @@ public class SwiftwolfsRendingGaleItem extends Item implements EMCStorageItem,Pr
             if (getEMC(stack) != 0) {
                 SWIFTWOLF_ABILITY.grantTo(player, VanillaAbilities.ALLOW_FLYING);
             } else {
-                ItemStack kleinStar = ((PlayerInventoryAccess)player.inventory).getKleinStarItem();
-                if (!kleinStar.isEmpty()) {
-                    KleinStarItem item = (KleinStarItem)kleinStar.getItem();
-                    int itemTotalEMC = item.getEMC(kleinStar);
-                    item.removeEMC(kleinStar, 64);
-                    addEMC(stack, Math.min(itemTotalEMC, 64));
-                    if (getEMC(stack) > 0) {
-                        SWIFTWOLF_ABILITY.grantTo(player, VanillaAbilities.ALLOW_FLYING);
-                    }
+                getAndConsumeEMC(stack, player, 64);
+                if (getEMC(stack) > 0) {
+                    SWIFTWOLF_ABILITY.grantTo(player, VanillaAbilities.ALLOW_FLYING);
                 }
             }
 
@@ -78,6 +70,24 @@ public class SwiftwolfsRendingGaleItem extends Item implements EMCStorageItem,Pr
         }
 
     }
+    public void getAndConsumeEMC(ItemStack stack, PlayerEntity player,  int amount) {
+        ItemStack kleinStar = ((PlayerInventoryAccess)player.inventory).getKleinStarItem();
+        if (!kleinStar.isEmpty()) {
+            KleinStarItem item = (KleinStarItem)kleinStar.getItem();
+            int itemTotalEMC = item.getEMC(kleinStar);
+            item.removeEMC(kleinStar, amount);
+            addEMC(stack, Math.min(itemTotalEMC, amount));
+            if (getEMC(stack) > 0) {
+                SWIFTWOLF_ABILITY.grantTo(player, VanillaAbilities.ALLOW_FLYING);
+            }
+        } else {
+            ItemStack fuelItem = ((PlayerInventoryAccess)player.inventory).getFuelItem();
+            if (fuelItem.isEmpty()) return;
+            int itemTotalEMC = EMC_Controller.getEMC(fuelItem.getItem());
+            addEMC(stack, itemTotalEMC);
+            fuelItem.decrement(1);
+        }
+    }
     public void forcefieldTick(World world, Entity user) {
         world.getOtherEntities(user, user.getBoundingBox().expand(11), entity -> {
             boolean userProjectile = false;
@@ -87,7 +97,7 @@ public class SwiftwolfsRendingGaleItem extends Item implements EMCStorageItem,Pr
                     userProjectile = owner.getUuid() == user.getUuid();
                 }
             }
-            if (entity instanceof ThrownItemEntity) {
+            if (entity instanceof ItemEntity) {
                 userProjectile = true;
             }
             if (!(entity instanceof LivingEntity) && userProjectile) {return false;}
@@ -114,30 +124,12 @@ public class SwiftwolfsRendingGaleItem extends Item implements EMCStorageItem,Pr
         super.appendTooltip(stack, world, tooltip, context);
 
     }
-
-    @Override
-    public int getEMC(ItemStack itemStack) {
-        CompoundTag tag = itemStack.getTag();
-        return tag == null ? 0 : tag.getInt("EMC");
-    }
-
     @Override
     public int getMaxEMC() {
         return Integer.MAX_VALUE;
     }
 
-    @Override
-    public void setEMC(ItemStack itemStack, int emc) {
-        itemStack.getOrCreateTag().putInt("EMC", emc);
-    }
 
-    @Override
-    public void addEMC(ItemStack itemStack, int emc) {
-        int curEMC = getEMC(itemStack);
-        curEMC+=emc;
-        curEMC = MathHelper.clamp(curEMC, 0, getMaxEMC());
-        setEMC(itemStack, curEMC);
-    }
     public void setFlyingState(ItemStack item, int flying) {
         if (getFlyingState(item) != flying) {
             item.getOrCreateTag().putInt("CustomModelData", flying);
@@ -156,10 +148,6 @@ public class SwiftwolfsRendingGaleItem extends Item implements EMCStorageItem,Pr
         return tag.getInt("CustomModelData");
 
     }
-    @Override
-    public void removeEMC(ItemStack itemStack, int emc) {
-        this.addEMC(itemStack, -emc);
-    }
 
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
@@ -168,16 +156,22 @@ public class SwiftwolfsRendingGaleItem extends Item implements EMCStorageItem,Pr
     }
 
     @Override
-    public void shootProjectile(ItemStack stack, World world, LivingEntity user) {
+    public void shootProjectile(World world, LivingEntity user, Hand hand) {
         if (((PlayerEntity)user).getItemCooldownManager().isCoolingDown(this.asItem())) {
             return;
         }
+        ItemStack item = user.getStackInHand(hand);
+        if (getEMC(item) < 64) {
+            getAndConsumeEMC(item, (PlayerEntity)user, 64);
+        }
+        if (getEMC(item) < 64) return;
+        removeEMC(item, 64);
         SwiftwolfsRendingGaleProjectileEntity projectile = new SwiftwolfsRendingGaleProjectileEntity(world, user, 0, 0, 0);
         projectile.setProperties(user, user.pitch, user.yaw, 0.0F, 2.0F, 1F);
         Vec3d vec3d = user.getRotationVec(1.0F);
         projectile.updatePosition(user.getX() + vec3d.x * 4.0D, user.getBodyY(.25F), projectile.getZ() + vec3d.z * 4.0D);
-        projectile.
         world.spawnEntity(projectile);
+
         ((PlayerEntity)user).getItemCooldownManager().set(this.asItem(), 25);
 
     }

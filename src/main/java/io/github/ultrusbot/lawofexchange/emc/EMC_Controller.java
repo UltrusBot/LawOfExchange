@@ -159,9 +159,17 @@ final public class EMC_Controller {
         }
         return (value != null) ? MathHelper.floor((value * item.getCount()) * damageDivider) : 0;
     }
+    static public int getEMC(Item item) {
+        Integer value = EMCValues.get(item);
+        return (value != null) ? value : 0;
+
+    }
     static public void addEMCValue(Item item, Integer integer) {
         EMCValues.put(item, integer);
     }
+
+
+
     static {
         EMCValues = new HashMap<>();
     }

@@ -1,5 +1,5 @@
 {
-  "text.lawofexchange.emc": "§7EMC: §f",
+  "text.lawofexchange.emc": "§bEMC: §f",
   "lawofexchange.command.setemc.success": "Set the %s of %s to %s",
   "item.lawofexchange.philosophers_stone": "Philosopher's Stone",
   "item.lawofexchange.dark_matter": "Dark Matter",
