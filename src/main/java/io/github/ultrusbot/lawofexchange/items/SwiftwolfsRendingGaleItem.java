@@ -174,6 +174,9 @@ public class SwiftwolfsRendingGaleItem extends Item implements EMCStorageItem,Pr
         }
         SwiftwolfsRendingGaleProjectileEntity projectile = new SwiftwolfsRendingGaleProjectileEntity(world, user, 0, 0, 0);
         projectile.setProperties(user, user.pitch, user.yaw, 0.0F, 2.0F, 1F);
+        Vec3d vec3d = user.getRotationVec(1.0F);
+        projectile.updatePosition(user.getX() + vec3d.x * 4.0D, user.getBodyY(.25F), projectile.getZ() + vec3d.z * 4.0D);
+        projectile.
         world.spawnEntity(projectile);
         ((PlayerEntity)user).getItemCooldownManager().set(this.asItem(), 25);
 

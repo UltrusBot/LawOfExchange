@@ -15,6 +15,8 @@ import net.minecraft.particle.ParticleEffect;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.util.hit.HitResult;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldProperties;
+import net.minecraft.world.level.ServerWorldProperties;
 
 public class SwiftwolfsRendingGaleProjectileEntity extends ExplosiveProjectileEntity{
 
@@ -41,6 +43,32 @@ public class SwiftwolfsRendingGaleProjectileEntity extends ExplosiveProjectileEn
                 LightningEntity lightningBolt = EntityType.LIGHTNING_BOLT.create(this.world);
                 lightningBolt.refreshPositionAfterTeleport(hitResult.getPos());
                 this.world.spawnEntity(lightningBolt);
+                if (this.world.isRaining()) {
+                    for (int i = 0; i < 5; i++) {
+                        LightningEntity extraBolt = EntityType.LIGHTNING_BOLT.create(this.world);
+                        extraBolt.refreshPositionAfterTeleport(hitResult.getPos().add((Math.random() - 0.5) * 6, 0, (Math.random() - 0.5) * 6));
+                        this.world.spawnEntity(extraBolt);
+
+                    }
+                }
+                this.remove();
+            }
+        }
+    }
+
+    @Override
+    public void tick() {
+        super.tick();
+        if (this.world.isClient) return;
+        if (this.getY() > 255) {
+//            WorldProperties worldProperties = this.getServer().getOverworld().getLevelProperties();
+//            if (this.world.isRaining() && !this.world.isThundering()) {
+//                ((ServerWorldProperties)worldProperties).setThundering(true);
+//
+//            }
+            if (this.world.isRaining() && !this.world.isThundering()) {
+//                ((ServerWorldProperties)this.getServer().getWorld(this.world.getRegistryKey()).getLevelProperties()).setThundering(true);
+                ((ServerWorldProperties)this.getServer().getOverworld().getLevelProperties()).setThundering(true);
                 this.remove();
             }
         }
@@ -57,6 +85,11 @@ public class SwiftwolfsRendingGaleProjectileEntity extends ExplosiveProjectileEn
     @Override
     protected boolean isBurning() {
         return false;
+    }
+
+    @Override
+    protected float getDrag() {
+        return 1f;
     }
 
     @Override
