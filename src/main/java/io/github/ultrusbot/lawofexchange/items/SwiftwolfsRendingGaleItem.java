@@ -9,6 +9,7 @@ import io.github.ultrusbot.lawofexchange.emc.EMC_Controller;
 import io.github.ultrusbot.lawofexchange.entity.projectile.SwiftwolfsRendingGaleProjectileEntity;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.ExperienceOrbEntity;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -26,7 +27,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class SwiftwolfsRendingGaleItem extends Item implements EMCStorageItem,ProjectileItem,ModeSwitchingItem {
+public class SwiftwolfsRendingGaleItem extends Item implements EMCStorageItem, ProjectileItem, ModeSwitchingItem, TickingItem {
     public static final AbilitySource SWIFTWOLF_ABILITY = Pal.getAbilitySource(LawOfExchangeMod.MOD_ID, "swiftwolf_rending_gale");
     public SwiftwolfsRendingGaleItem(Settings settings) {
         super(settings);
@@ -94,7 +95,7 @@ public class SwiftwolfsRendingGaleItem extends Item implements EMCStorageItem,Pr
                     userProjectile = owner.getUuid() == user.getUuid();
                 }
             }
-            if (entity instanceof ItemEntity || entity instanceof SwiftwolfsRendingGaleProjectileEntity) {
+            if (entity instanceof ItemEntity || entity instanceof SwiftwolfsRendingGaleProjectileEntity || entity instanceof ExperienceOrbEntity) {
                 userProjectile = true;
             }
             if (!(entity instanceof LivingEntity) && userProjectile) {return false;}
@@ -104,15 +105,6 @@ public class SwiftwolfsRendingGaleItem extends Item implements EMCStorageItem,Pr
             entity.addVelocity(pushDir.x, pushDir.y, pushDir.z);
             return false;
         } );
-    }
-    public void setTickCount(ItemStack itemStack, int count) {
-        itemStack.getOrCreateTag().putInt("tickCount", count);
-
-    }
-    public int getTickCount(ItemStack itemStack) {
-        CompoundTag tag = itemStack.getTag();
-        return tag == null ? 0 : tag.getInt("tickCount");
-
     }
 
     @Override
@@ -166,10 +158,10 @@ public class SwiftwolfsRendingGaleItem extends Item implements EMCStorageItem,Pr
         SwiftwolfsRendingGaleProjectileEntity projectile = new SwiftwolfsRendingGaleProjectileEntity(world, user, 0, 0, 0);
         projectile.setProperties(user, user.pitch, user.yaw, 0.0F, 2.0F, 1F);
         Vec3d vec3d = user.getRotationVec(1.0F);
-        projectile.updatePosition(user.getX() + vec3d.x * 4.0D, user.getBodyY(.25F), projectile.getZ() + vec3d.z * 4.0D);
+        projectile.updatePosition(user.getX() + vec3d.x * 4.0D, user.getEyeY() - 1, projectile.getZ() + vec3d.z * 4.0D);
         world.spawnEntity(projectile);
 
-        ((PlayerEntity)user).getItemCooldownManager().set(this.asItem(), 25);
+        ((PlayerEntity)user).getItemCooldownManager().set(this.asItem(), 5);
 
     }
 

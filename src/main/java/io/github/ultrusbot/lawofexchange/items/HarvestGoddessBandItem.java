@@ -29,7 +29,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Iterator;
 import java.util.List;
 
-public class HarvestGoddessBandItem extends Item implements ModeSwitchingItem, EMCStorageItem {
+public class HarvestGoddessBandItem extends Item implements ModeSwitchingItem, EMCStorageItem, TickingItem {
     public HarvestGoddessBandItem(Settings settings) {
         super(settings);
     }
@@ -78,20 +78,12 @@ public class HarvestGoddessBandItem extends Item implements ModeSwitchingItem, E
                     world.breakBlock(cur, true, entity);
                 }
             } else {
-                if (block.getBlock() instanceof PlantBlock) {
+                if (block.getBlock() instanceof FernBlock || block.getBlock() instanceof FlowerBlock) {
                     world.breakBlock(cur, true, entity);
 
                 }
             }
         }
-    }
-    public void setTickCount(ItemStack itemStack, int count) {
-        itemStack.getOrCreateTag().putInt("tickCount", count);
-
-    }
-    public int getTickCount(ItemStack itemStack) {
-        return itemStack.getOrCreateTag().getInt("tickCount");
-
     }
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {

@@ -33,6 +33,7 @@ public class ItemRegistry {
     public static Item DARK_MATTER_LEGGINGS = new ArmorItem(LoEArmorMaterials.DARK_MATTER, EquipmentSlot.LEGS, new Item.Settings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP));
     public static Item DARK_MATTER_BOOTS = new ArmorItem(LoEArmorMaterials.DARK_MATTER, EquipmentSlot.FEET, new Item.Settings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP));
     public static Item DARK_MATTER_SHEARS = new SpecialMatterShears(new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP));
+
     //Red Matter
     public static Item RED_MATTER = new Item(new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP));
     public static Item RED_MATTER_BLOCK = new BlockItem(BlockRegistry.RED_MATTER_BLOCK, new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP));
@@ -59,6 +60,12 @@ public class ItemRegistry {
     public static Item KLEIN_STAR_EIN = new KleinStarItem(50000, new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP).maxCount(1));
     public static Item KLEIN_STAR_ZWEI = new KleinStarItem(200000, new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP).maxCount(1));
     public static Item KLEIN_STAR_DREI = new KleinStarItem(800000, new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP).maxCount(1));
+
+    //Stones
+    public static Item BODY_STONE = new BodyStoneItem(new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP).maxCount(1));
+    public static Item SOUL_STONE = new SoulStoneItem(new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP).maxCount(1));
+    public static Item LIFE_STONE = new LifeStoneItem(new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP).maxCount(1));
+    public static Item MIND_STONE = new MindStoneItem(new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP).maxCount(1));
 
     public static void register() {
         PHILOSOPHERS_STONE = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "philosophers_stone"), PHILOSOPHERS_STONE);
@@ -99,6 +106,12 @@ public class ItemRegistry {
         KLEIN_STAR_EIN = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "klein_star_ein"), KLEIN_STAR_EIN);
         KLEIN_STAR_ZWEI = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "klein_star_zwei"), KLEIN_STAR_ZWEI);
         KLEIN_STAR_DREI = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "klein_star_drei"), KLEIN_STAR_DREI);
+
+        //Stones
+        BODY_STONE = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "body_stone"), BODY_STONE);
+        SOUL_STONE = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "soul_stone"), SOUL_STONE);
+        LIFE_STONE = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "life_stone"), LIFE_STONE);
+        MIND_STONE = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "mind_stone"), MIND_STONE);
 
         FuelRegistry.INSTANCE.add(ALCHEMICAL_COAL, 6400);
         FuelRegistry.INSTANCE.add(MOBIUS_FUEL, 25600);
