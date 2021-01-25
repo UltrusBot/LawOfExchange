@@ -24,6 +24,8 @@ public class LawOfExchangeClient implements ClientModInitializer {
     public void onInitializeClient() {
         ScreenRegistry.<AlchemicalChestGuiDescription, AlchemicalChestScreen>register(GUIRegistry.ALCHEMICAL_CHEST_SCREEN_HANDLER_TYPE, (gui, inventory, title) -> new AlchemicalChestScreen(gui, inventory.player, title));
         ArmorRenderingRegistry.registerSimpleTexture(new Identifier(LawOfExchangeMod.MOD_ID, "dark_matter"), ItemRegistry.DARK_MATTER_HELMET, ItemRegistry.DARK_MATTER_CHESTPLATE, ItemRegistry.DARK_MATTER_LEGGINGS, ItemRegistry.DARK_MATTER_BOOTS);
+        ArmorRenderingRegistry.registerSimpleTexture(new Identifier(LawOfExchangeMod.MOD_ID, "exotic_matter"), ItemRegistry.EXOTIC_MATTER_HELMET, ItemRegistry.EXOTIC_MATTER_CHESTPLATE, ItemRegistry.EXOTIC_MATTER_LEGGINGS, ItemRegistry.EXOTIC_MATTER_BOOTS);
+
         KeybindRegistry.register();
         EntityRendererRegistry.INSTANCE.register(EntityTypeRegistry.SWIFTWOLFS_RENDING_GALE_PROJECTILE_ENTITY_ENTITY_TYPE, (dispatcher, context) -> new SWRGEntityRenderer(dispatcher));
         ClientSidePacketRegistry.INSTANCE.register(CustomEntitySpawnS2CPacket.LOW_ENTITY_SPAWN_PACKET, ((context, buffer) -> {

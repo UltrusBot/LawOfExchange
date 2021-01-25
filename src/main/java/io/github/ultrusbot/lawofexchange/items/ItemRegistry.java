@@ -41,6 +41,11 @@ public class ItemRegistry {
 
     //Exotic Matter
     public static Item EXOTIC_MATTER = new Item(new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP));
+    public static Item EXOTIC_MATTER_HELMET = new ArmorItem(LoEArmorMaterials.DARK_MATTER, EquipmentSlot.HEAD, new Item.Settings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP));
+    public static Item EXOTIC_MATTER_CHESTPLATE = new ArmorItem(LoEArmorMaterials.DARK_MATTER, EquipmentSlot.CHEST, new Item.Settings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP));
+    public static Item EXOTIC_MATTER_LEGGINGS = new ArmorItem(LoEArmorMaterials.DARK_MATTER, EquipmentSlot.LEGS, new Item.Settings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP));
+    public static Item EXOTIC_MATTER_BOOTS = new ArmorItem(LoEArmorMaterials.DARK_MATTER, EquipmentSlot.FEET, new Item.Settings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP));
+    public static Item EXOTIC_MATTER_BLOCK = new BlockItem(BlockRegistry.EXOTIC_MATTER_BLOCK, new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP));
 
 
     //Other
@@ -84,6 +89,12 @@ public class ItemRegistry {
 
         //Exotic Matter
         EXOTIC_MATTER = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "exotic_matter"), EXOTIC_MATTER);
+        EXOTIC_MATTER_HELMET = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "exotic_matter_helmet"), EXOTIC_MATTER_HELMET);
+        EXOTIC_MATTER_CHESTPLATE = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "exotic_matter_chestplate"), EXOTIC_MATTER_CHESTPLATE);
+        EXOTIC_MATTER_LEGGINGS = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "exotic_matter_leggings"), EXOTIC_MATTER_LEGGINGS);
+        EXOTIC_MATTER_BOOTS = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "exotic_matter_boots"), EXOTIC_MATTER_BOOTS);
+        EXOTIC_MATTER_BLOCK = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "exotic_matter_block"), EXOTIC_MATTER_BLOCK);
+
         //Klein Stars
         KLEIN_STAR_EIN = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "klein_star_ein"), KLEIN_STAR_EIN);
         KLEIN_STAR_ZWEI = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "klein_star_zwei"), KLEIN_STAR_ZWEI);
@@ -92,7 +103,6 @@ public class ItemRegistry {
         FuelRegistry.INSTANCE.add(ALCHEMICAL_COAL, 6400);
         FuelRegistry.INSTANCE.add(MOBIUS_FUEL, 25600);
         FuelRegistry.INSTANCE.add(AETERNALIS_FUEL, 102400);
-
     }
 
 }

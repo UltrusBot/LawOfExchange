@@ -42,7 +42,7 @@ public class CustomKeybindPackets {
                         projectileItem.shootProjectile(context.getPlayer().world, context.getPlayer(), Hand.MAIN_HAND);
                     }
                     break;
-                case CHANGE_MODE:
+                case ACTIVATE_ITEM:
                     break;
                 case CHARGE_ITEM:
                     break;

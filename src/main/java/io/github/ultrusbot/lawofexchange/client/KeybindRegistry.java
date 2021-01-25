@@ -13,7 +13,7 @@ public class KeybindRegistry {
     public enum KEY {
         FIRE_PROJECTILE,
         CHARGE_ITEM,
-        CHANGE_MODE,
+        ACTIVATE_ITEM,
         ARMOR_EFFECT
     }
 

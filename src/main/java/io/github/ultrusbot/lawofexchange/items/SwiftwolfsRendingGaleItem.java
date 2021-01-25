@@ -35,10 +35,10 @@ public class SwiftwolfsRendingGaleItem extends Item implements EMCStorageItem,Pr
     @Override
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
         super.inventoryTick(stack, world, entity, slot, selected);
+        if (!(entity instanceof PlayerEntity) || slot > 8) { return; }
         if (getMode(stack) == 1) {
             forcefieldTick(world, entity);
         }
-        if (!(entity instanceof PlayerEntity) || slot > 8) { return; }
         if (!world.isClient) {
             PlayerEntity player = (PlayerEntity) entity;
             if (getEMC(stack) != 0) {
@@ -77,9 +77,6 @@ public class SwiftwolfsRendingGaleItem extends Item implements EMCStorageItem,Pr
             int itemTotalEMC = item.getEMC(kleinStar);
             item.removeEMC(kleinStar, amount);
             addEMC(stack, Math.min(itemTotalEMC, amount));
-            if (getEMC(stack) > 0) {
-                SWIFTWOLF_ABILITY.grantTo(player, VanillaAbilities.ALLOW_FLYING);
-            }
         } else {
             ItemStack fuelItem = ((PlayerInventoryAccess)player.inventory).getFuelItem();
             if (fuelItem.isEmpty()) return;
@@ -97,7 +94,7 @@ public class SwiftwolfsRendingGaleItem extends Item implements EMCStorageItem,Pr
                     userProjectile = owner.getUuid() == user.getUuid();
                 }
             }
-            if (entity instanceof ItemEntity) {
+            if (entity instanceof ItemEntity || entity instanceof SwiftwolfsRendingGaleProjectileEntity) {
                 userProjectile = true;
             }
             if (!(entity instanceof LivingEntity) && userProjectile) {return false;}
