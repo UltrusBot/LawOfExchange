@@ -1,6 +1,8 @@
 package io.github.ultrusbot.lawofexchange.emc;
 
+import io.github.ultrusbot.lawofexchange.LawOfExchangeMod;
 import io.github.ultrusbot.lawofexchange.items.ItemRegistry;
+import net.fabricmc.fabric.api.tag.TagRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -9,6 +11,8 @@ import net.minecraft.recipe.*;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.tag.BlockTags;
 import net.minecraft.tag.ItemTags;
+import net.minecraft.tag.Tag;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.math.MathHelper;
 
 import java.util.HashMap;
@@ -63,11 +67,14 @@ final public class EMC_Controller {
         addEMCValue(Items.SPONGE, 64);
         addEMCValue(Items.WET_SPONGE, 64);
         addEMCValue(Items.PURPUR_BLOCK, 128);
+        addEMCValue(Items.STRING, 24);
         addEMCValue(Items.WHEAT, 24);
         addEMCValue(Items.NETHER_WART, 24);
         addEMCValue(Items.ROTTEN_FLESH, 24);
         addEMCValue(Items.SLIME_BALL, 24);
-        
+        addEMCValue(Items.SUGAR_CANE, 32);
+
+        addEMCValue(Items.FEATHER, 48);
         addEMCValue(Items.COAL, 128);
         addEMCValue(Items.APPLE, 128);
         addEMCValue(Items.SPIDER_EYE, 128);
@@ -76,6 +83,7 @@ final public class EMC_Controller {
         addEMCValue(Items.GHAST_TEAR, 4096);
         addEMCValue(Items.REDSTONE, 64);
         addEMCValue(Items.IRON_INGOT, 256);
+        addEMCValue(Items.LAVA_BUCKET, 832);
         addEMCValue(Items.GOLD_INGOT, 2048);
         addEMCValue(Items.DIAMOND, 8192);
         addEMCValue(Items.NETHERITE_SCRAP, 294912);
@@ -147,6 +155,10 @@ final public class EMC_Controller {
         }
         for (Block block : BlockTags.FLOWERS.values()) {
             addEMCValue(block.asItem(), 16);
+        }
+        Tag<Item> tag = TagRegistry.item(new Identifier("c", "saplings"));
+        for (Item item : tag.values()) {
+            addEMCValue(item, 32);
         }
 
     }

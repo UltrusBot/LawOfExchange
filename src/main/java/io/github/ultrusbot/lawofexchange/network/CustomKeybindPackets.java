@@ -2,6 +2,7 @@ package io.github.ultrusbot.lawofexchange.network;
 
 import io.github.ultrusbot.lawofexchange.LawOfExchangeMod;
 import io.github.ultrusbot.lawofexchange.client.KeybindRegistry;
+import io.github.ultrusbot.lawofexchange.items.ChargeableItem;
 import io.github.ultrusbot.lawofexchange.items.ProjectileItem;
 import io.netty.buffer.Unpooled;
 import net.fabricmc.api.EnvType;
@@ -45,6 +46,11 @@ public class CustomKeybindPackets {
                 case ACTIVATE_ITEM:
                     break;
                 case CHARGE_ITEM:
+                    if (stack.getItem() instanceof ChargeableItem) {
+                        ChargeableItem item = (ChargeableItem)stack.getItem();
+                        item.increaseCharge(stack, context.getPlayer().isSneaking() ? -1 : 1);
+                        context.getPlayer().getItemCooldownManager().set(stack.getItem(), 10);
+                    }
                     break;
                 case ARMOR_EFFECT:
                     break;

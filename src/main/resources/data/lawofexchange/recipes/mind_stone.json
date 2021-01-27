@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SSS",
+    "RLR",
+    "SSS"
+  ],
+  "key": {
+    "S": {
+      "item": "minecraft:book"
+    },
+    "R": {
+      "item": "lawofexchange:red_matter"
+    },
+    "L": {
+      "item": "minecraft:lapis_lazuli"
+    }
+  },
+  "result": {
+    "item": "lawofexchange:mind_stone",
+    "count": 1
+  }
+}

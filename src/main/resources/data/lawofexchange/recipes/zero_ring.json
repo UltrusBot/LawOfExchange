@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SSS",
+    "DVD",
+    "SSS"
+  ],
+  "key": {
+    "D": {
+      "item": "lawofexchange:dark_matter"
+    },
+    "V": {
+      "item": "lawofexchange:iron_band"
+    },
+    "S": {
+      "item": "minecraft:snow_block"
+    }
+  },
+  "result": {
+    "item": "lawofexchange:zero_ring",
+    "count": 1
+
+  }
+}

@@ -48,14 +48,15 @@ public class ItemRegistry {
     public static Item EXOTIC_MATTER_BOOTS = new ArmorItem(LoEArmorMaterials.DARK_MATTER, EquipmentSlot.FEET, new Item.Settings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP));
     public static Item EXOTIC_MATTER_BLOCK = new BlockItem(BlockRegistry.EXOTIC_MATTER_BLOCK, new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP));
 
-
     //Other
     public static Item ALCHEMICAL_CHEST = new BlockItem(BlockRegistry.ALCHEMICAL_CHEST, new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP));
     public static Item TRANSMUTATION_TABLE = new BlockItem(BlockRegistry.TRANSMUTATION_TABLE, new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP));
     public static Item SWIFTWOLFS_RENDING_GALE = new SwiftwolfsRendingGaleItem(new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP).maxCount(1));
     public static Item HARVEST_GODDESS_BAND = new HarvestGoddessBandItem(new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP).maxCount(1));
-
-
+    public static Item BLACK_HOLE_BAND = new BlackHoleBandItem(new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP).maxCount(1));
+    public static Item IRON_BAND = new Item(new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP));
+    public static Item ZERO_RING = new ZeroRingItem(new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP).maxCount(1));
+    public static Item ARCHANGELS_SMITE = new ArchangelsSmiteItem(new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP).maxCount(1));
     //KLEIN STARS
     public static Item KLEIN_STAR_EIN = new KleinStarItem(50000, new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP).maxCount(1));
     public static Item KLEIN_STAR_ZWEI = new KleinStarItem(200000, new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP).maxCount(1));
@@ -76,6 +77,10 @@ public class ItemRegistry {
         TRANSMUTATION_TABLE = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "transmutation_table"), TRANSMUTATION_TABLE);
         SWIFTWOLFS_RENDING_GALE = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "swiftwolfs_rending_gale"), SWIFTWOLFS_RENDING_GALE);
         HARVEST_GODDESS_BAND = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "harvest_goddess_band"), HARVEST_GODDESS_BAND);
+        BLACK_HOLE_BAND = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "black_hole_band"), BLACK_HOLE_BAND);
+        IRON_BAND = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "iron_band"), IRON_BAND);
+        ZERO_RING = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "zero_ring"), ZERO_RING);
+        ARCHANGELS_SMITE = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "archangels_smite"), ARCHANGELS_SMITE);
 
         //Dark Matter
         DARK_MATTER = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "dark_matter"), DARK_MATTER);

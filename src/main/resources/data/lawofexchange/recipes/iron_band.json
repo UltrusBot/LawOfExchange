@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "III",
+    "ILI",
+    "III"
+  ],
+  "key": {
+    "L": {
+      "item": "minecraft:lava_bucket"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "result": {
+    "item": "lawofexchange:iron_band",
+    "count": 1
+  }
+}

@@ -21,13 +21,16 @@ public class InputEventClientMixin {
 
     @Inject(at = @At("TAIL"),method= "handleInputEvents")
     public void LOEInputEvent(CallbackInfo ci) {
-        while (KeybindRegistry.projectileKey.wasPressed()) {
+        if (KeybindRegistry.projectileKey.isPressed()) {
             if (!this.player.getMainHandStack().isEmpty() && !this.player.getItemCooldownManager().isCoolingDown(this.player.getMainHandStack().getItem())) {
                 CustomKeybindPackets.sendKeybindPacket(KeybindRegistry.KEY.FIRE_PROJECTILE);
-                System.out.println("Sent out a packet!");
             }
         }
-
+        if (KeybindRegistry.chargeKey.isPressed()) {
+            if (!this.player.getMainHandStack().isEmpty() && !this.player.getItemCooldownManager().isCoolingDown(this.player.getMainHandStack().getItem())) {
+                CustomKeybindPackets.sendKeybindPacket(KeybindRegistry.KEY.CHARGE_ITEM);
+            }
+        }
     }
 
 }

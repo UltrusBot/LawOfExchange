@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SSS",
+    "BVB",
+    "SSS"
+  ],
+  "key": {
+    "S": {
+      "item": "minecraft:string"
+    },
+    "B": {
+      "item": "lawofexchange:dark_matter"
+    },
+    "V": {
+      "item": "lawofexchange:iron_band"
+    }
+  },
+  "result": {
+    "item": "lawofexchange:black_hole_band",
+    "count": 1
+
+  }
+}

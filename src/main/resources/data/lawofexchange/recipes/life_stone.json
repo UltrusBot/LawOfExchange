@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "lawofexchange:body_stone"
+    },
+    {
+      "item": "lawofexchange:soul_stone"
+    }
+  ],
+  "result": {
+    "item": "lawofexchange:life_stone",
+    "count": 1
+  }
+}

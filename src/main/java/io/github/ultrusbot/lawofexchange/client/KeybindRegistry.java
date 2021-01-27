@@ -9,7 +9,7 @@ import org.lwjgl.glfw.GLFW;
 
 public class KeybindRegistry {
     public static KeyBinding projectileKey;
-
+    public static KeyBinding chargeKey;
     public enum KEY {
         FIRE_PROJECTILE,
         CHARGE_ITEM,
@@ -19,6 +19,6 @@ public class KeybindRegistry {
 
     public static void register() {
         projectileKey = KeyBindingHelper.registerKeyBinding(new KeyBinding("key.lawofexchange.fire_projectile", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_R, "key.category.law_of_exchange"));
-
+        chargeKey = KeyBindingHelper.registerKeyBinding(new KeyBinding("key.lawofexchange.charge_item", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_H, "key.category.law_of_exchange"));
     }
 }

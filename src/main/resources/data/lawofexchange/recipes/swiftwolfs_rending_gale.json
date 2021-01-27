@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "IFI",
+    "FVF",
+    "IFI"
+  ],
+  "key": {
+    "F": {
+      "item": "minecraft:feather"
+    },
+    "I": {
+      "item": "lawofexchange:dark_matter"
+    },
+    "V": {
+      "item": "lawofexchange:iron_band"
+    }
+  },
+  "result": {
+    "item": "lawofexchange:swiftwolfs_rending_gale",
+    "count": 1
+
+  }
+}
