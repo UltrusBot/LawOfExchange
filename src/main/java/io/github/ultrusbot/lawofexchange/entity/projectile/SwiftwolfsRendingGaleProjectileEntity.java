@@ -15,7 +15,6 @@ import net.minecraft.particle.ParticleEffect;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.util.hit.HitResult;
 import net.minecraft.world.World;
-import net.minecraft.world.WorldProperties;
 import net.minecraft.world.level.ServerWorldProperties;
 
 public class SwiftwolfsRendingGaleProjectileEntity extends ExplosiveProjectileEntity{
@@ -27,11 +26,11 @@ public class SwiftwolfsRendingGaleProjectileEntity extends ExplosiveProjectileEn
 
     @Environment(EnvType.CLIENT)
     public SwiftwolfsRendingGaleProjectileEntity(World world, double x, double y, double z, double directionX, double directionY, double directionZ) {
-        super(EntityTypeRegistry.SWIFTWOLFS_RENDING_GALE_PROJECTILE_ENTITY_ENTITY_TYPE, x, y, z, directionX, directionY, directionZ, world);
+        super(EntityTypeRegistry.SWRG_ENTITY_TYPE, x, y, z, directionX, directionY, directionZ, world);
     }
 
     public SwiftwolfsRendingGaleProjectileEntity(World world, LivingEntity owner, double directionX, double directionY, double directionZ) {
-        super(EntityTypeRegistry.SWIFTWOLFS_RENDING_GALE_PROJECTILE_ENTITY_ENTITY_TYPE, owner, directionX, directionY, directionZ, world);
+        super(EntityTypeRegistry.SWRG_ENTITY_TYPE, owner, directionX, directionY, directionZ, world);
     }
 
 

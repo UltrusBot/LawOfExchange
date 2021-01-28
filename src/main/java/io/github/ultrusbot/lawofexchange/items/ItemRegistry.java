@@ -13,6 +13,7 @@ import net.minecraft.item.ArmorItem;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.Rarity;
 import net.minecraft.util.registry.Registry;
 
 public class ItemRegistry {
@@ -20,8 +21,8 @@ public class ItemRegistry {
     public static Item PHILOSOPHERS_STONE = new PhilosopherStoneItem(new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP).maxCount(1));
     //Fuels
     public static Item ALCHEMICAL_COAL = new Item(new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP));
-    public static Item MOBIUS_FUEL = new Item(new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP));
-    public static Item AETERNALIS_FUEL = new Item(new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP));
+    public static Item MOBIUS_FUEL = new Item(new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP).rarity(Rarity.UNCOMMON));
+    public static Item AETERNALIS_FUEL = new Item(new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP).rarity(Rarity.RARE));
 
     //Dark Matter
     public static Item DARK_MATTER = new Item(new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP));
@@ -57,6 +58,8 @@ public class ItemRegistry {
     public static Item IRON_BAND = new Item(new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP));
     public static Item ZERO_RING = new ZeroRingItem(new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP).maxCount(1));
     public static Item ARCHANGELS_SMITE = new ArchangelsSmiteItem(new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP).maxCount(1));
+    public static Item IGNITION_RING = new IgnitionRingItem(new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP).maxCount(1));
+
     //KLEIN STARS
     public static Item KLEIN_STAR_EIN = new KleinStarItem(50000, new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP).maxCount(1));
     public static Item KLEIN_STAR_ZWEI = new KleinStarItem(200000, new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP).maxCount(1));
@@ -81,6 +84,7 @@ public class ItemRegistry {
         IRON_BAND = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "iron_band"), IRON_BAND);
         ZERO_RING = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "zero_ring"), ZERO_RING);
         ARCHANGELS_SMITE = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "archangels_smite"), ARCHANGELS_SMITE);
+        IGNITION_RING = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "ignition_ring"), IGNITION_RING);
 
         //Dark Matter
         DARK_MATTER = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "dark_matter"), DARK_MATTER);
