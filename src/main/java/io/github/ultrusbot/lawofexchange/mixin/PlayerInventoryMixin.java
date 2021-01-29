@@ -2,10 +2,10 @@ package io.github.ultrusbot.lawofexchange.mixin;
 
 
 import io.github.ultrusbot.lawofexchange.LawOfExchangeMod;
+import io.github.ultrusbot.lawofexchange.emc.EMC_Controller;
 import io.github.ultrusbot.lawofexchange.items.KleinStarItem;
 import io.github.ultrusbot.lawofexchange.items.PlayerInventoryAccess;
 import net.fabricmc.fabric.api.tag.TagRegistry;
-import net.minecraft.block.Block;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -85,7 +85,6 @@ public class PlayerInventoryMixin implements PlayerInventoryAccess {
     }
     public ItemStack searchForItemFromTag(Tag<Item> tag) {
         Iterator var2 = this.combinedInventory.iterator();
-
         while(var2.hasNext()) {
             List<ItemStack> list = (List)var2.next();
             Iterator var4 = list.iterator();
@@ -93,6 +92,25 @@ public class PlayerInventoryMixin implements PlayerInventoryAccess {
             while(var4.hasNext()) {
                 ItemStack itemStack = (ItemStack)var4.next();
                 if (!itemStack.isEmpty() && itemStack.getItem().isIn(tag)) {
+                    return itemStack;
+                }
+            }
+        }
+
+        return ItemStack.EMPTY;
+
+    }
+
+    @Override
+    public ItemStack getItemWithLessEMC(int emc) {
+        Iterator var2 = this.combinedInventory.iterator();
+        while(var2.hasNext()) {
+            List<ItemStack> list = (List)var2.next();
+            Iterator var4 = list.iterator();
+
+            while(var4.hasNext()) {
+                ItemStack itemStack = (ItemStack)var4.next();
+                if (!itemStack.isEmpty() && EMC_Controller.getEMC(itemStack.getItem()) != 0&&EMC_Controller.getEMC(itemStack.getItem()) < emc) {
                     return itemStack;
                 }
             }

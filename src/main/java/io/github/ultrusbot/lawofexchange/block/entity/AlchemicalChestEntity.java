@@ -13,7 +13,6 @@ import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.ScreenHandlerContext;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.collection.DefaultedList;
 
 public class AlchemicalChestEntity extends BlockEntity implements CustomInventory, NamedScreenHandlerFactory {

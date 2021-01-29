@@ -1,12 +1,7 @@
 package io.github.ultrusbot.lawofexchange.mixin;
 
 import io.github.ultrusbot.lawofexchange.items.ItemRegistry;
-import io.github.ultrusbot.lawofexchange.items.PhilosopherStoneItem;
-import net.minecraft.inventory.Inventory;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.recipe.Recipe;
-import net.minecraft.util.collection.DefaultedList;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;

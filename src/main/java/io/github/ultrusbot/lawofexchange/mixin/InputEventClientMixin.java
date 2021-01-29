@@ -4,7 +4,6 @@ import io.github.ultrusbot.lawofexchange.client.KeybindRegistry;
 import io.github.ultrusbot.lawofexchange.network.CustomKeybindPackets;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayerEntity;
-import net.minecraft.util.Hand;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;

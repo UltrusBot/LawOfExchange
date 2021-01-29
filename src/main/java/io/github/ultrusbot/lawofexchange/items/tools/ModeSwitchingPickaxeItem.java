@@ -2,11 +2,8 @@ package io.github.ultrusbot.lawofexchange.items.tools;
 
 import io.github.ultrusbot.lawofexchange.items.ModeSwitchingItem;
 import me.shedaniel.cloth.api.durability.bar.DurabilityBarItem;
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.OreBlock;
 import net.minecraft.client.item.TooltipContext;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -23,7 +20,6 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.Iterator;
 import java.util.List;
 
 public class ModeSwitchingPickaxeItem extends InfiniteDurabilityPickaxeItem implements DurabilityBarItem, ModeSwitchingItem {

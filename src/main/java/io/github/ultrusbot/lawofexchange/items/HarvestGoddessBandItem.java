@@ -1,6 +1,5 @@
 package io.github.ultrusbot.lawofexchange.items;
 
-import io.github.ultrusbot.lawofexchange.LawOfExchangeMod;
 import io.github.ultrusbot.lawofexchange.emc.EMCStorageItem;
 import io.github.ultrusbot.lawofexchange.emc.EMC_Controller;
 import net.fabricmc.fabric.api.tag.TagRegistry;
@@ -12,8 +11,6 @@ import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.tag.BlockTags;
 import net.minecraft.tag.Tag;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
@@ -22,11 +19,9 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.Iterator;
 import java.util.List;
 
 public class HarvestGoddessBandItem extends Item implements ModeSwitchingItem, EMCStorageItem, TickingItem {
@@ -56,6 +51,7 @@ public class HarvestGoddessBandItem extends Item implements ModeSwitchingItem, E
 
         } else if (getMode(stack) == 1 && getEMC(stack) <= 64) {
             switchMode(stack);
+            stack.getOrCreateTag().putInt("CustomModelData", getMode(stack));
         }
     }
 
@@ -141,21 +137,6 @@ public class HarvestGoddessBandItem extends Item implements ModeSwitchingItem, E
         return getMode(stack) == 1;
     }
 
-    @Override
-    public void switchMode(ItemStack item) {
-        CompoundTag tag = item.getOrCreateTag();
-        int currentMode = tag.getInt("mode");
-        currentMode += 1;
-        currentMode %= 2;
-        tag.putInt("mode", currentMode);
-        item.getOrCreateTag().putInt("CustomModelData", currentMode);
-    }
-
-    @Override
-    public int getMode(ItemStack item) {
-        CompoundTag tag = item.getTag();
-        return tag == null ? 0 : tag.getInt("mode");
-    }
     @Override
     public int getMaxEMC() {
         return Integer.MAX_VALUE;

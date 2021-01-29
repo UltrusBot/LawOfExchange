@@ -14,7 +14,7 @@ public class BlockRegistry {
     public static Block DARK_MATTER_BLOCK = new Block(FabricBlockSettings.of(Material.STONE).strength(50, 18000000).breakByTool(FabricToolTags.PICKAXES, 4));
     public static Block RED_MATTER_BLOCK = new Block(FabricBlockSettings.of(Material.STONE).strength(50, 0).breakByTool(FabricToolTags.PICKAXES, 5));
     public static Block EXOTIC_MATTER_BLOCK = new Block(FabricBlockSettings.of(Material.STONE).strength(50, 0).breakByTool(FabricToolTags.PICKAXES, 6));
-
+    public static Block DARK_MATTER_FURNACE;
     public static Block TRANSMUTATION_TABLE = new TransmutationTableBlock(FabricBlockSettings.of(Material.STONE));
     public static void register() {
         ALCHEMICAL_CHEST = Registry.register(Registry.BLOCK, new Identifier(LawOfExchangeMod.MOD_ID, "alchemical_chest"), ALCHEMICAL_CHEST);

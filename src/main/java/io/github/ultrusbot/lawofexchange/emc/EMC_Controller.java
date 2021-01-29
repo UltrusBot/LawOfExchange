@@ -1,6 +1,5 @@
 package io.github.ultrusbot.lawofexchange.emc;
 
-import io.github.ultrusbot.lawofexchange.LawOfExchangeMod;
 import io.github.ultrusbot.lawofexchange.items.ItemRegistry;
 import net.fabricmc.fabric.api.tag.TagRegistry;
 import net.minecraft.block.Block;

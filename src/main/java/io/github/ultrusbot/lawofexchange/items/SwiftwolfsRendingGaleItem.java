@@ -166,24 +166,8 @@ public class SwiftwolfsRendingGaleItem extends Item implements EMCStorageItem, P
     }
 
     @Override
-    public void switchMode(ItemStack item) {
-        CompoundTag tag = item.getOrCreateTag();
-        int currentMode = tag.getInt("mode");
-        currentMode += 1;
-        currentMode %= 2;
-        tag.putInt("mode", currentMode);
-
-    }
-
-    @Override
     public boolean hasGlint(ItemStack stack) {
         return getMode(stack) == 1;
     }
 
-    @Override
-    public int getMode(ItemStack item) {
-        CompoundTag tag = item.getTag();
-        return tag == null ? 0 : tag.getInt("mode");
-
-    }
 }

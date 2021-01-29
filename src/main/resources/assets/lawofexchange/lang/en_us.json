@@ -37,6 +37,7 @@
   "lawofexchange.command.setemc.success": "Set the %s of %s to %s",
   "text.autoconfig.lawofexchange.option.darkMatterFurnaceDoubleChance": "Dark Matter Furnace Double Chance",
   "text.autoconfig.lawofexchange.title": "Philosophers Stone Mod",
+  "text.lawofexchange.deactivated": "Deactivated",
   "text.lawofexchange.emc": "§bEMC: §f",
   "text.lawofexchange.mode": "Mode",
   "text.lawofexchange.pickaxe_mode_0": "Default",

@@ -3,8 +3,8 @@ package io.github.ultrusbot.lawofexchange.items;
 import io.github.ultrusbot.lawofexchange.LawOfExchangeMod;
 import io.github.ultrusbot.lawofexchange.block.BlockRegistry;
 import io.github.ultrusbot.lawofexchange.items.armor.LoEArmorMaterials;
-import io.github.ultrusbot.lawofexchange.items.tools.ModeSwitchingPickaxeItem;
 import io.github.ultrusbot.lawofexchange.items.tools.InfiniteDurabilitySwordItem;
+import io.github.ultrusbot.lawofexchange.items.tools.ModeSwitchingPickaxeItem;
 import io.github.ultrusbot.lawofexchange.items.tools.SpecialMatterShears;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
@@ -59,6 +59,7 @@ public class ItemRegistry {
     public static Item ZERO_RING = new ZeroRingItem(new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP).maxCount(1));
     public static Item ARCHANGELS_SMITE = new ArchangelsSmiteItem(new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP).maxCount(1));
     public static Item IGNITION_RING = new IgnitionRingItem(new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP).maxCount(1));
+    public static Item GEM_OF_ETERNAL_DENSITY = new GemofEternalDensityItem(new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP).maxCount(1));
 
     //KLEIN STARS
     public static Item KLEIN_STAR_EIN = new KleinStarItem(50000, new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP).maxCount(1));
@@ -85,6 +86,7 @@ public class ItemRegistry {
         ZERO_RING = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "zero_ring"), ZERO_RING);
         ARCHANGELS_SMITE = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "archangels_smite"), ARCHANGELS_SMITE);
         IGNITION_RING = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "ignition_ring"), IGNITION_RING);
+        GEM_OF_ETERNAL_DENSITY = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "gem_of_eternal_density"), GEM_OF_ETERNAL_DENSITY);
 
         //Dark Matter
         DARK_MATTER = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "dark_matter"), DARK_MATTER);

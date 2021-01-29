@@ -9,5 +9,5 @@ public interface PlayerInventoryAccess {
     ItemStack getFuelItem();
     ItemStack searchForItem(Item item);
     ItemStack searchForItemFromTag(Tag<Item> tag);
-
+    ItemStack getItemWithLessEMC(int emc);
     }

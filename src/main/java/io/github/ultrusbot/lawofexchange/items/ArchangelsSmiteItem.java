@@ -10,7 +10,6 @@ import net.minecraft.item.ArrowItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Hand;
@@ -84,27 +83,11 @@ public class ArchangelsSmiteItem extends Item implements EMCStorageItem,ModeSwit
     public int getMaxEMC() {
         return Integer.MAX_VALUE;
     }
-
-    @Override
-    public void switchMode(ItemStack item) {
-        CompoundTag tag = item.getOrCreateTag();
-        int currentMode = tag.getInt("mode");
-        currentMode += 1;
-        currentMode %= 2;
-        tag.putInt("mode", currentMode);
-
-    }
+    
 
     @Override
     public boolean hasGlint(ItemStack stack) {
         return getMode(stack) == 1;
-    }
-
-    @Override
-    public int getMode(ItemStack item) {
-        CompoundTag tag = item.getTag();
-        return tag == null ? 0 : tag.getInt("mode");
-
     }
 
     @Override

@@ -2,26 +2,19 @@ package io.github.ultrusbot.lawofexchange.items;
 
 import io.github.ultrusbot.lawofexchange.emc.EMCStorageItem;
 import io.github.ultrusbot.lawofexchange.emc.EMC_Controller;
-import io.github.ultrusbot.lawofexchange.entity.projectile.SwiftwolfsRendingGaleProjectileEntity;
-import me.shedaniel.cloth.api.durability.bar.DurabilityBarItem;
 import net.minecraft.block.AbstractFireBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.ExperienceOrbEntity;
-import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.FireballEntity;
-import net.minecraft.entity.projectile.ProjectileEntity;
-import net.minecraft.entity.projectile.SmallFireballEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.ActionResult;
@@ -131,21 +124,9 @@ public class IgnitionRingItem extends Item implements ProjectileItem, ModeSwitch
         return getMode(stack) == 1;
     }
 
-    @Override
-    public void switchMode(ItemStack item) {
-        CompoundTag tag = item.getOrCreateTag();
-        int currentMode = tag.getInt("mode");
-        currentMode += 1;
-        currentMode %= 2;
-        tag.putInt("mode", currentMode);
-        item.getOrCreateTag().putInt("CustomModelData", currentMode);
-    }
 
-    @Override
-    public int getMode(ItemStack item) {
-        CompoundTag tag = item.getTag();
-        return tag == null ? 0 : tag.getInt("mode");
-    }
+
+
 
     @Override
     public int getMaxEMC() {

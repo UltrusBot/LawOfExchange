@@ -6,7 +6,6 @@ import io.github.cottonmc.cotton.gui.widget.WItemSlot;
 import io.github.ultrusbot.lawofexchange.gui.GUIRegistry;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.screen.ScreenHandlerContext;
-import net.minecraft.screen.ScreenHandlerType;
 
 public class AlchemicalChestGuiDescription extends SyncedGuiDescription {
     private static final int INVENTORY_SIZE = 104;

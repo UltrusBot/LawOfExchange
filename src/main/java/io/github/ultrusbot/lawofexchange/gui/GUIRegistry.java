@@ -2,7 +2,6 @@ package io.github.ultrusbot.lawofexchange.gui;
 
 import io.github.ultrusbot.lawofexchange.LawOfExchangeMod;
 import io.github.ultrusbot.lawofexchange.gui.alchemical_chest.AlchemicalChestGuiDescription;
-import io.github.ultrusbot.lawofexchange.gui.alchemical_chest.AlchemicalChestScreen;
 import net.fabricmc.fabric.api.screenhandler.v1.ScreenHandlerRegistry;
 import net.minecraft.screen.ScreenHandlerContext;
 import net.minecraft.screen.ScreenHandlerType;
