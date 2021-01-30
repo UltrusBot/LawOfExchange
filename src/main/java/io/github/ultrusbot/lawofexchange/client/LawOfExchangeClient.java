@@ -6,6 +6,8 @@ import io.github.ultrusbot.lawofexchange.entity.EntityTypeRegistry;
 import io.github.ultrusbot.lawofexchange.gui.GUIRegistry;
 import io.github.ultrusbot.lawofexchange.gui.alchemical_chest.AlchemicalChestGuiDescription;
 import io.github.ultrusbot.lawofexchange.gui.alchemical_chest.AlchemicalChestScreen;
+import io.github.ultrusbot.lawofexchange.gui.furnace.DarkMatterFurnaceScreen;
+import io.github.ultrusbot.lawofexchange.gui.furnace.DarkMatterFurnaceScreenHandler;
 import io.github.ultrusbot.lawofexchange.items.ItemRegistry;
 import io.github.ultrusbot.lawofexchange.network.CustomEntitySpawnS2CPacket;
 import net.fabricmc.api.ClientModInitializer;
@@ -22,6 +24,8 @@ public class LawOfExchangeClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         ScreenRegistry.<AlchemicalChestGuiDescription, AlchemicalChestScreen>register(GUIRegistry.ALCHEMICAL_CHEST_SCREEN_HANDLER_TYPE, (gui, inventory, title) -> new AlchemicalChestScreen(gui, inventory.player, title));
+        ScreenRegistry.<DarkMatterFurnaceScreenHandler, DarkMatterFurnaceScreen>register(GUIRegistry.DARK_MATTER_FURNACE_SCREEN_HANDLER, DarkMatterFurnaceScreen::new);
+
         ArmorRenderingRegistry.registerSimpleTexture(new Identifier(LawOfExchangeMod.MOD_ID, "dark_matter"), ItemRegistry.DARK_MATTER_HELMET, ItemRegistry.DARK_MATTER_CHESTPLATE, ItemRegistry.DARK_MATTER_LEGGINGS, ItemRegistry.DARK_MATTER_BOOTS);
         ArmorRenderingRegistry.registerSimpleTexture(new Identifier(LawOfExchangeMod.MOD_ID, "exotic_matter"), ItemRegistry.EXOTIC_MATTER_HELMET, ItemRegistry.EXOTIC_MATTER_CHESTPLATE, ItemRegistry.EXOTIC_MATTER_LEGGINGS, ItemRegistry.EXOTIC_MATTER_BOOTS);
 

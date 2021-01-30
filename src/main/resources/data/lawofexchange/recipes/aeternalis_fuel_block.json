@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "lawofexchange:aeternalis_fuel"
+    }
+  },
+  "result": {
+    "item": "lawofexchange:aeternalis_fuel_block",
+    "count": 1
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "lawofexchange:block/aeternalis_fuel_block"
+  }
+}

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
     "id": "lawofexchange",
-  "version": "${mod_version}",
+  "version": "${version}",
   "name": "Philosopher Stone",
   "description": "Lets you perform alchemy using tools such as the Philosophers Stone, letting you transform one material into another!",
   "authors": [

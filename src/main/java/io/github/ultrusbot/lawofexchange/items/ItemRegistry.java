@@ -23,6 +23,9 @@ public class ItemRegistry {
     public static Item ALCHEMICAL_COAL = new Item(new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP));
     public static Item MOBIUS_FUEL = new Item(new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP).rarity(Rarity.UNCOMMON));
     public static Item AETERNALIS_FUEL = new Item(new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP).rarity(Rarity.RARE));
+    public static Item ALCHEMICAL_COAL_BLOCK = new BlockItem(BlockRegistry.ALCHEMICAL_COAL_BLOCK, new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP));
+    public static Item MOBIUS_FUEL_BLOCK = new BlockItem(BlockRegistry.MOBIUS_FUEL_BLOCK, new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP).rarity(Rarity.UNCOMMON));
+    public static Item AETERNALIS_FUEL_BLOCK = new BlockItem(BlockRegistry.AETERNALIS_FUEL_BLOCK, new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP).rarity(Rarity.RARE));
 
     //Dark Matter
     public static Item DARK_MATTER = new Item(new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP));
@@ -34,7 +37,7 @@ public class ItemRegistry {
     public static Item DARK_MATTER_LEGGINGS = new ArmorItem(LoEArmorMaterials.DARK_MATTER, EquipmentSlot.LEGS, new Item.Settings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP));
     public static Item DARK_MATTER_BOOTS = new ArmorItem(LoEArmorMaterials.DARK_MATTER, EquipmentSlot.FEET, new Item.Settings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP));
     public static Item DARK_MATTER_SHEARS = new SpecialMatterShears(new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP));
-
+    public static Item DARK_MATTER_FURNACE = new BlockItem(BlockRegistry.DARK_MATTER_FURNACE, new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP));
     //Red Matter
     public static Item RED_MATTER = new Item(new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP));
     public static Item RED_MATTER_BLOCK = new BlockItem(BlockRegistry.RED_MATTER_BLOCK, new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP));
@@ -73,10 +76,15 @@ public class ItemRegistry {
     public static Item MIND_STONE = new MindStoneItem(new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP).maxCount(1));
 
     public static void register() {
-        PHILOSOPHERS_STONE = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "philosophers_stone"), PHILOSOPHERS_STONE);
+        //Fuels
         ALCHEMICAL_COAL = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "alchemical_coal"), ALCHEMICAL_COAL);
         MOBIUS_FUEL = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "mobius_fuel"), MOBIUS_FUEL);
         AETERNALIS_FUEL = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "aeternalis_fuel"), AETERNALIS_FUEL);
+        ALCHEMICAL_COAL_BLOCK = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "alchemical_coal_block"), ALCHEMICAL_COAL_BLOCK);
+        MOBIUS_FUEL_BLOCK = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "mobius_fuel_block"), MOBIUS_FUEL_BLOCK);
+        AETERNALIS_FUEL_BLOCK = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "aeternalis_fuel_block"), AETERNALIS_FUEL_BLOCK);
+        //
+        PHILOSOPHERS_STONE = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "philosophers_stone"), PHILOSOPHERS_STONE);
         ALCHEMICAL_CHEST = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "alchemical_chest"), ALCHEMICAL_CHEST);
         TRANSMUTATION_TABLE = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "transmutation_table"), TRANSMUTATION_TABLE);
         SWIFTWOLFS_RENDING_GALE = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "swiftwolfs_rending_gale"), SWIFTWOLFS_RENDING_GALE);
@@ -98,6 +106,7 @@ public class ItemRegistry {
         DARK_MATTER_LEGGINGS = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "dark_matter_leggings"), DARK_MATTER_LEGGINGS);
         DARK_MATTER_BOOTS = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "dark_matter_boots"), DARK_MATTER_BOOTS);
         DARK_MATTER_SHEARS = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "dark_matter_shears"), DARK_MATTER_SHEARS);
+        DARK_MATTER_FURNACE = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "dark_matter_furnace"), DARK_MATTER_FURNACE);
 
         //Red Matter
         RED_MATTER = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "red_matter"), RED_MATTER);

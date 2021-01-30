@@ -72,7 +72,8 @@ final public class EMC_Controller {
         addEMCValue(Items.ROTTEN_FLESH, 24);
         addEMCValue(Items.SLIME_BALL, 24);
         addEMCValue(Items.SUGAR_CANE, 32);
-
+        addEMCValue(Items.LEATHER, 64);
+        addEMCValue(Items.LAPIS_LAZULI, 864);
         addEMCValue(Items.FEATHER, 48);
         addEMCValue(Items.COAL, 128);
         addEMCValue(Items.APPLE, 128);

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "top": "lawofexchange:block/dark_matter_block",
+    "front": "lawofexchange:block/dark_matter_furnace_lit",
+    "side": "lawofexchange:block/dark_matter_block"
+  }
+}
