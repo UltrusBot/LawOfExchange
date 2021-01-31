@@ -3,7 +3,7 @@ package io.github.ultrusbot.lawofexchange.command;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.IntegerArgumentType;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
-import io.github.ultrusbot.lawofexchange.emc.EMC_Controller;
+import io.github.ultrusbot.lawofexchange.emc.EmcController;
 import net.minecraft.command.argument.ItemStackArgument;
 import net.minecraft.command.argument.ItemStackArgumentType;
 import net.minecraft.server.command.CommandManager;
@@ -20,7 +20,7 @@ public class setEMCCommand{
         })))));
     }
     private static int execute(ServerCommandSource source, ItemStackArgument item, int emc) throws CommandSyntaxException {
-        EMC_Controller.addEMCValue(item.getItem(), emc);
+        EmcController.addEMCValue(item.getItem(), emc);
 //        source.sendFeedback(new TranslatableText("lawofexchange.command.setemc.success", new TranslatableText("text.lawofexchange.emc"), , emc), true);
         return 1;
     }

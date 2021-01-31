@@ -2,7 +2,7 @@ package io.github.ultrusbot.lawofexchange.block.entity;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
-import io.github.ultrusbot.lawofexchange.emc.EMC_Controller;
+import io.github.ultrusbot.lawofexchange.emc.EmcController;
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
 import it.unimi.dsi.fastutil.objects.ObjectIterator;
@@ -36,7 +36,6 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -102,7 +101,7 @@ public abstract class AbstractEMCFurnaceBlockEntity extends LockableContainerBlo
         Map<Item, Integer> map = Maps.newLinkedHashMap();
         Tag<Item> tag = TagRegistry.item(new Identifier("lawofexchange", "emc_fuels"));
         for (Item item: tag.values()) {
-            addFuel(map, (ItemConvertible)item, EMC_Controller.getEMC(item)/3);
+            addFuel(map, (ItemConvertible)item, EmcController.getEMC(item)/3);
         }
         return map;
     }
@@ -230,6 +229,7 @@ public abstract class AbstractEMCFurnaceBlockEntity extends LockableContainerBlo
     }
     public void tryToPushOutput() {
         ItemStack outputStack = this.inventory.get(2);
+        if (outputStack.getCount() < outputStack.getMaxCount()) return;
         for (int i = 11; i < 19; i++) {
             if (this.inventory.get(i).isEmpty()) {
                 this.inventory.set(i, outputStack.copy());
@@ -266,12 +266,22 @@ public abstract class AbstractEMCFurnaceBlockEntity extends LockableContainerBlo
             ItemStack itemStack = this.inventory.get(0);
             ItemStack itemStack2 = recipe.getOutput();
             ItemStack itemStack3 = this.inventory.get(2);
+            Tag<Item> tag = TagRegistry.item(new Identifier("c", "ores"));
             if (itemStack3.isEmpty()) {
                 this.inventory.set(2, itemStack2.copy());
             } else if (itemStack3.getItem() == itemStack2.getItem()) {
                 itemStack3.increment(1);
             }
-
+            tryToPushOutput();
+            if (itemStack.getItem().isIn(tag)) {
+                if (this.world.getRandom().nextFloat() < 0.5f) {
+                    if (itemStack3.isEmpty()) {
+                        this.inventory.set(2, itemStack2.copy());
+                    } else {
+                        itemStack3.increment(1);
+                    }
+                }
+            }
             if (!this.world.isClient) {
                 this.setLastRecipe(recipe);
             }

@@ -2,7 +2,7 @@ package io.github.ultrusbot.lawofexchange.mixin;
 
 
 import io.github.ultrusbot.lawofexchange.LawOfExchangeMod;
-import io.github.ultrusbot.lawofexchange.emc.EMC_Controller;
+import io.github.ultrusbot.lawofexchange.emc.EmcController;
 import io.github.ultrusbot.lawofexchange.items.KleinStarItem;
 import io.github.ultrusbot.lawofexchange.items.PlayerInventoryAccess;
 import net.fabricmc.fabric.api.tag.TagRegistry;
@@ -110,7 +110,7 @@ public class PlayerInventoryMixin implements PlayerInventoryAccess {
 
             while(var4.hasNext()) {
                 ItemStack itemStack = (ItemStack)var4.next();
-                if (!itemStack.isEmpty() && EMC_Controller.getEMC(itemStack.getItem()) != 0&&EMC_Controller.getEMC(itemStack.getItem()) < emc) {
+                if (!itemStack.isEmpty() && EmcController.getEMC(itemStack.getItem()) != 0&& EmcController.getEMC(itemStack.getItem()) < emc) {
                     return itemStack;
                 }
             }

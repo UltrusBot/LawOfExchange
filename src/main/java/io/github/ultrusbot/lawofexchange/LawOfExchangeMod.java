@@ -4,7 +4,7 @@ import io.github.ultrusbot.lawofexchange.block.BlockRegistry;
 import io.github.ultrusbot.lawofexchange.block.entity.BlockEntityRegistry;
 import io.github.ultrusbot.lawofexchange.command.setEMCCommand;
 import io.github.ultrusbot.lawofexchange.config.PhilosopherStoneConfig;
-import io.github.ultrusbot.lawofexchange.emc.EMC_Controller;
+import io.github.ultrusbot.lawofexchange.emc.EmcController;
 import io.github.ultrusbot.lawofexchange.entity.EntityTypeRegistry;
 import io.github.ultrusbot.lawofexchange.gui.GUIRegistry;
 import io.github.ultrusbot.lawofexchange.items.ItemRegistry;
@@ -36,11 +36,11 @@ public class LawOfExchangeMod implements ModInitializer {
         EntityTypeRegistry.register();
         CustomKeybindPackets.readKeybindPacket();
         ServerLifecycleEvents.SERVER_STARTED.register((MinecraftServer server) -> {
-            EMC_Controller.loadEMCConfig();
-            EMC_Controller.tagsToEMC();
-            EMC_Controller.generateRecipeEMC(server);
-            EMC_Controller.generateRecipeEMC(server);
-            EMC_Controller.generateRecipeEMC(server);
+            EmcController.loadEMCConfig();
+            EmcController.tagsToEMC();
+            EmcController.generateRecipeEmc(server);
+            EmcController.generateRecipeEmc(server);
+            EmcController.generateRecipeEmc(server);
 //            EMC_Controller.printEMC();
         });
         CommandRegistrationCallback.EVENT.register((dispatcher, dedicated) -> {

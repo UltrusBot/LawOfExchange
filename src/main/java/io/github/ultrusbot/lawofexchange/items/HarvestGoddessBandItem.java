@@ -1,7 +1,7 @@
 package io.github.ultrusbot.lawofexchange.items;
 
 import io.github.ultrusbot.lawofexchange.emc.EMCStorageItem;
-import io.github.ultrusbot.lawofexchange.emc.EMC_Controller;
+import io.github.ultrusbot.lawofexchange.emc.EmcController;
 import net.fabricmc.fabric.api.tag.TagRegistry;
 import net.minecraft.block.*;
 import net.minecraft.client.item.TooltipContext;
@@ -121,7 +121,7 @@ public class HarvestGoddessBandItem extends Item implements ModeSwitchingItem, E
         } else {
             ItemStack fuelItem = ((PlayerInventoryAccess)player.inventory).getFuelItem();
             if (fuelItem.isEmpty()) return;
-            int itemTotalEMC = EMC_Controller.getEMC(fuelItem.getItem());
+            int itemTotalEMC = EmcController.getEMC(fuelItem.getItem());
             addEMC(stack, itemTotalEMC);
             fuelItem.decrement(1);
         }

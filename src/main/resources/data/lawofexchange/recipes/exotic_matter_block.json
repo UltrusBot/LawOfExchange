@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "##",
+    "##"
+
+  ],
+  "key": {
+    "#": {
+      "item": "lawofexchange:exotic_matter"
+    }
+  },
+  "result": {
+    "item": "lawofexchange:exotic_matter_block",
+    "count": 1
+  }
+}

@@ -5,7 +5,7 @@ import io.github.ladysnake.pal.Pal;
 import io.github.ladysnake.pal.VanillaAbilities;
 import io.github.ultrusbot.lawofexchange.LawOfExchangeMod;
 import io.github.ultrusbot.lawofexchange.emc.EMCStorageItem;
-import io.github.ultrusbot.lawofexchange.emc.EMC_Controller;
+import io.github.ultrusbot.lawofexchange.emc.EmcController;
 import io.github.ultrusbot.lawofexchange.entity.projectile.SwiftwolfsRendingGaleProjectileEntity;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.Entity;
@@ -81,7 +81,7 @@ public class SwiftwolfsRendingGaleItem extends Item implements EMCStorageItem, P
         } else {
             ItemStack fuelItem = ((PlayerInventoryAccess)player.inventory).getFuelItem();
             if (fuelItem.isEmpty()) return;
-            int itemTotalEMC = EMC_Controller.getEMC(fuelItem.getItem());
+            int itemTotalEMC = EmcController.getEMC(fuelItem.getItem());
             addEMC(stack, itemTotalEMC);
             fuelItem.decrement(1);
         }

@@ -16,7 +16,7 @@ import net.minecraft.util.math.MathHelper;
 
 import java.util.HashMap;
 
-final public class EMC_Controller {
+final public class EmcController {
     private static HashMap<Item, Integer> EMCValues;
 
     //Loads EMC Config
@@ -95,52 +95,49 @@ final public class EMC_Controller {
         addEMCValue(ItemRegistry.AETERNALIS_FUEL, 8192);
 
     }
-
-    static public void generateRecipeEMC(MinecraftServer server) {
-        for (Recipe<?> recipe: server.getOverworld().getRecipeManager().listAllOfType(RecipeType.CRAFTING)) {
-            boolean ingredientsHaveEMC = true;
-            int totalEMC = 0;
-            Item output = recipe.getOutput().getItem();
-            if (EMCValues.get(output) != null) {
-                continue;
-            }
-            for (Ingredient ingredient: recipe.getPreviewInputs()) {
-                for (Integer id: ingredient.getIds()) {
-                    Item item = RecipeFinder.getStackFromId(id).getItem();
-                    if (item.equals(ItemRegistry.PHILOSOPHERS_STONE)) {
-                        continue;
+    public static void generateRecipeEmc(MinecraftServer server) {
+        int roundCount = 100;
+        while (roundCount != 0) {
+            roundCount = 0;
+            for (Recipe<?> recipe: server.getOverworld().getRecipeManager().listAllOfType(RecipeType.CRAFTING)) {
+                boolean ingredientsHaveEMC = true;
+                int totalEMC = 0;
+                Item output = recipe.getOutput().getItem();
+                if (EMCValues.get(output) != null) {
+                    continue;
+                }
+                for (Ingredient ingredient: recipe.getPreviewInputs()) {
+                    for (Integer id: ingredient.getIds()) {
+                        Item item = RecipeFinder.getStackFromId(id).getItem();
+                        if (item.equals(ItemRegistry.PHILOSOPHERS_STONE)) {
+                            continue;
+                        }
+                        Integer EMC = EMCValues.get(item);
+                        ingredientsHaveEMC = ingredientsHaveEMC && EMC != null ;
+                        if (ingredientsHaveEMC) {
+                            totalEMC += EMC;
+                        }
+                        break;
                     }
-                    Integer EMC = EMCValues.get(item);
-                    ingredientsHaveEMC = ingredientsHaveEMC && EMC != null ;
-                    if (ingredientsHaveEMC) {
-                        totalEMC += EMC;
+                }
+                if (ingredientsHaveEMC) {
+                    int count = 1;
+                    if (recipe instanceof ShapedRecipe) {
+                        ShapedRecipe newRecipe = (ShapedRecipe)recipe;
+                        count = newRecipe.getOutput().getCount();
                     }
-                    break;
+                    if (recipe instanceof ShapelessRecipe) {
+                        ShapelessRecipe newRecipe = (ShapelessRecipe)recipe;
+                        count = newRecipe.getOutput().getCount();
+                    }
+                    addEMCValue(recipe.getOutput().getItem(), totalEMC/count);
+                    roundCount++;
                 }
-            }
-            if (ingredientsHaveEMC) {
-                int count = 1;
-                if (recipe instanceof ShapedRecipe) {
-                    ShapedRecipe newRecipe = (ShapedRecipe)recipe;
-                    count = newRecipe.getOutput().getCount();
-                }
-                if (recipe instanceof ShapelessRecipe) {
-                    ShapelessRecipe newRecipe = (ShapelessRecipe)recipe;
-                    count = newRecipe.getOutput().getCount();
-                }
-
-                addEMCValue(recipe.getOutput().getItem(), totalEMC/count);
             }
         }
-    }
 
-    static public void printEMC() {
-        for (Item item : EMCValues.keySet()) {
-            System.out.println(item.getTranslationKey() + " : " + EMCValues.get(item));
-
-        }
     }
-    static public void tagsToEMC() {
+    public static void tagsToEMC() {
         for (Block block : BlockTags.LOGS.values()) {
             addEMCValue(block.asItem(), 32);
         }
@@ -163,7 +160,7 @@ final public class EMC_Controller {
 
     }
 
-    static public int getEMC(ItemStack item) {
+    public static int getEMC(ItemStack item) {
         Integer value = EMCValues.get(item.getItem());
         float damageDivider = 1;
         if (item.getDamage() != 0 && item.getMaxDamage() != 0) {
@@ -176,7 +173,7 @@ final public class EMC_Controller {
         return (value != null) ? value : 0;
 
     }
-    static public void addEMCValue(Item item, Integer integer) {
+    public static void addEMCValue(Item item, Integer integer) {
         EMCValues.put(item, integer);
     }
 

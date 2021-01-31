@@ -1,7 +1,7 @@
 package io.github.ultrusbot.lawofexchange.items;
 
 import io.github.ultrusbot.lawofexchange.emc.EMCStorageItem;
-import io.github.ultrusbot.lawofexchange.emc.EMC_Controller;
+import io.github.ultrusbot.lawofexchange.emc.EmcController;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -28,13 +28,13 @@ public class GemofEternalDensityItem extends Item implements EMCStorageItem,Mode
         if (!(entity instanceof PlayerEntity)) return;
         PlayerEntity player = (PlayerEntity)entity;
         if (getMode(stack) != 0) {
-            ItemStack toConsume = ((PlayerInventoryAccess)player.inventory).getItemWithLessEMC(EMC_Controller.getEMC(getModeItem(stack)));
+            ItemStack toConsume = ((PlayerInventoryAccess)player.inventory).getItemWithLessEMC(EmcController.getEMC(getModeItem(stack)));
             if (toConsume.isEmpty()) return;
             if (toConsume.isDamageable()) return;
-            addEMC(stack, EMC_Controller.getEMC(toConsume.getItem()));
+            addEMC(stack, EmcController.getEMC(toConsume.getItem()));
             toConsume.decrement(1);
-            if (getEMC(stack) >= EMC_Controller.getEMC(getModeItem(stack))) {
-                removeEMC(stack, EMC_Controller.getEMC(getModeItem(stack)));
+            if (getEMC(stack) >= EmcController.getEMC(getModeItem(stack))) {
+                removeEMC(stack, EmcController.getEMC(getModeItem(stack)));
                 player.giveItemStack(getModeItem(stack).getDefaultStack());
             }
         }
