@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "lawofexchange:block/energy_condenser",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "lawofexchange:block/energy_condenser"
+    },
+    "facing=south": {
+      "model": "lawofexchange:block/energy_condenser",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "lawofexchange:block/energy_condenser",
+      "y": 270
+    }
+  }
+}

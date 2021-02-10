@@ -1,0 +1,36 @@
+{
+	"credit": "Made with Blockbench",
+	"parent": "minecraft:block/block",
+	"textures": {
+		"0": "lawofexchange:block/alchemical_chest",
+		"particle": "lawofexchange:block/alchemical_chest"
+	},
+	"elements": [
+		{
+			"from": [1, 0, 1],
+			"to": [15, 14, 15],
+			"rotation": {"angle": 0, "axis": "y", "origin": [9, 8, 9]},
+			"faces": {
+				"north": {"uv": [0, 7, 7, 14], "texture": "#0"},
+				"east": {"uv": [0, 7, 7, 14], "texture": "#0"},
+				"south": {"uv": [0, 7, 7, 14], "texture": "#0"},
+				"west": {"uv": [0, 7, 7, 14], "texture": "#0"},
+				"up": {"uv": [0, 0, 7, 7], "texture": "#0"},
+				"down": {"uv": [7, 7.5, 14, 14.5], "texture": "#0"}
+			}
+		},
+		{
+			"from": [7, 7, 0],
+			"to": [9, 11, 1],
+			"rotation": {"angle": 0, "axis": "y", "origin": [15, 15, 8]},
+			"faces": {
+				"north": {"uv": [14, 0.5, 15, 2.5], "texture": "#0"},
+				"east": {"uv": [14, 0.5, 14.5, 2.5], "texture": "#0"},
+				"south": {"uv": [14, 0.5, 15, 2.5], "texture": "#0"},
+				"west": {"uv": [15, 0.5, 15.5, 2.5], "texture": "#0"},
+				"up": {"uv": [14, 0, 15, 0.5], "texture": "#0"},
+				"down": {"uv": [14, 0, 15, 0.5], "texture": "#0"}
+			}
+		}
+	]
+}

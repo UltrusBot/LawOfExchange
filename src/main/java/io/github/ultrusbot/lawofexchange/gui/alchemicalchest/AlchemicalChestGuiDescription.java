@@ -1,4 +1,4 @@
-package io.github.ultrusbot.lawofexchange.gui.alchemical_chest;
+package io.github.ultrusbot.lawofexchange.gui.alchemicalchest;
 
 import io.github.cottonmc.cotton.gui.SyncedGuiDescription;
 import io.github.cottonmc.cotton.gui.widget.WGridPanel;

@@ -20,11 +20,34 @@
     ],
     "main": [
       "io.github.ultrusbot.lawofexchange.LawOfExchangeMod"
+    ],
+    "cardinal-components-entity": [
+      "io.github.ultrusbot.lawofexchange.components.LawOfExchangeComponents"
     ]
   },
   "mixins": [
     "LawOfExchangeMod.mixins.json"
   ],
+  "custom": {
+    "cardinal-components": [
+      "lawofexchange:alchemical_bag_white",
+      "lawofexchange:alchemical_bag_orange",
+      "lawofexchange:alchemical_bag_magenta",
+      "lawofexchange:alchemical_bag_light_blue",
+      "lawofexchange:alchemical_bag_yellow",
+      "lawofexchange:alchemical_bag_lime",
+      "lawofexchange:alchemical_bag_pink",
+      "lawofexchange:alchemical_bag_gray",
+      "lawofexchange:alchemical_bag_light_gray",
+      "lawofexchange:alchemical_bag_cyan",
+      "lawofexchange:alchemical_bag_purple",
+      "lawofexchange:alchemical_bag_blue",
+      "lawofexchange:alchemical_bag_brown",
+      "lawofexchange:alchemical_bag_green",
+      "lawofexchange:alchemical_bag_red",
+      "lawofexchange:alchemical_bag_black"
+    ]
+  },
   "depends": {
     "fabricloader": ">=0.10.8",
     "fabric": "*",

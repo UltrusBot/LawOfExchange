@@ -2,6 +2,7 @@ package io.github.ultrusbot.lawofexchange.mixin;
 
 
 import io.github.ladysnake.pal.VanillaAbilities;
+import io.github.ultrusbot.lawofexchange.inventory.AlchemicalBagInventory;
 import io.github.ultrusbot.lawofexchange.items.ItemRegistry;
 import io.github.ultrusbot.lawofexchange.items.SwiftwolfsRendingGaleItem;
 import net.minecraft.entity.EntityType;
@@ -22,7 +23,6 @@ public abstract class PlayerEntityMixinLOE extends LivingEntity {
 
 
     @Shadow @Final public PlayerInventory inventory;
-
     protected PlayerEntityMixinLOE(EntityType<? extends LivingEntity> entityType, World world) {
         super(entityType, world);
     }

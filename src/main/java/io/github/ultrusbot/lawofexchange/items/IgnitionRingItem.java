@@ -2,6 +2,7 @@ package io.github.ultrusbot.lawofexchange.items;
 
 import io.github.ultrusbot.lawofexchange.emc.EMCStorageItem;
 import io.github.ultrusbot.lawofexchange.emc.EmcController;
+import io.github.ultrusbot.lawofexchange.inventory.PlayerInventoryAccess;
 import net.minecraft.block.AbstractFireBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.item.TooltipContext;

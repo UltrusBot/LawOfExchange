@@ -4,7 +4,7 @@ package io.github.ultrusbot.lawofexchange.mixin;
 import io.github.ultrusbot.lawofexchange.LawOfExchangeMod;
 import io.github.ultrusbot.lawofexchange.emc.EmcController;
 import io.github.ultrusbot.lawofexchange.items.KleinStarItem;
-import io.github.ultrusbot.lawofexchange.items.PlayerInventoryAccess;
+import io.github.ultrusbot.lawofexchange.inventory.PlayerInventoryAccess;
 import net.fabricmc.fabric.api.tag.TagRegistry;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.item.Item;

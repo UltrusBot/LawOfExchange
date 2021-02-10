@@ -20,6 +20,7 @@ public class BlockRegistry {
     public static Block ALCHEMICAL_COAL_BLOCK = new Block(FabricBlockSettings.copyOf(Blocks.COAL_BLOCK));
     public static Block MOBIUS_FUEL_BLOCK = new Block(FabricBlockSettings.copyOf(Blocks.COAL_BLOCK));
     public static Block AETERNALIS_FUEL_BLOCK = new Block(FabricBlockSettings.copyOf(Blocks.COAL_BLOCK));
+    public static Block ENERGY_CONDENSER = new EnergyCondenserBlock(FabricBlockSettings.copyOf(ALCHEMICAL_CHEST));
     public static void register() {
         ALCHEMICAL_CHEST = Registry.register(Registry.BLOCK, new Identifier(LawOfExchangeMod.MOD_ID, "alchemical_chest"), ALCHEMICAL_CHEST);
         DARK_MATTER_BLOCK = Registry.register(Registry.BLOCK, new Identifier(LawOfExchangeMod.MOD_ID, "dark_matter_block"), DARK_MATTER_BLOCK);
@@ -30,6 +31,7 @@ public class BlockRegistry {
         ALCHEMICAL_COAL_BLOCK = Registry.register(Registry.BLOCK, new Identifier(LawOfExchangeMod.MOD_ID, "alchemical_coal_block"), ALCHEMICAL_COAL_BLOCK);
         MOBIUS_FUEL_BLOCK = Registry.register(Registry.BLOCK, new Identifier(LawOfExchangeMod.MOD_ID, "mobius_fuel_block"), MOBIUS_FUEL_BLOCK);
         AETERNALIS_FUEL_BLOCK = Registry.register(Registry.BLOCK, new Identifier(LawOfExchangeMod.MOD_ID, "aeternalis_fuel_block"), AETERNALIS_FUEL_BLOCK);
+        ENERGY_CONDENSER = Registry.register(Registry.BLOCK, new Identifier(LawOfExchangeMod.MOD_ID, "energy_condenser"), ENERGY_CONDENSER);
 
     }
 }

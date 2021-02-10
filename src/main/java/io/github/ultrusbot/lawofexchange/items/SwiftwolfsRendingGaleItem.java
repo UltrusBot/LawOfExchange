@@ -7,6 +7,7 @@ import io.github.ultrusbot.lawofexchange.LawOfExchangeMod;
 import io.github.ultrusbot.lawofexchange.emc.EMCStorageItem;
 import io.github.ultrusbot.lawofexchange.emc.EmcController;
 import io.github.ultrusbot.lawofexchange.entity.projectile.SwiftwolfsRendingGaleProjectileEntity;
+import io.github.ultrusbot.lawofexchange.inventory.PlayerInventoryAccess;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.ExperienceOrbEntity;

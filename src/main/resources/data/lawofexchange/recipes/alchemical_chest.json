@@ -1,0 +1,35 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "GCB",
+    "SDS",
+    "I#I"
+  ],
+  "key": {
+    "G": {
+      "item": "lawofexchange:green_covalence_dust"
+    },
+    "C": {
+      "item": "lawofexchange:cyan_covalence_dust"
+    },
+    "B": {
+      "item": "lawofexchange:blue_covalence_dust"
+    },
+    "S": {
+      "item": "minecraft:stone"
+    },
+    "D": {
+      "item": "minecraft:diamond"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "#": {
+      "item": "minecraft:chest"
+    }
+  },
+  "result": {
+    "item": "lawofexchange:alchemical_chest",
+    "count": 1
+  }
+}

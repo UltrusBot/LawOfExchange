@@ -2,6 +2,7 @@ package io.github.ultrusbot.lawofexchange.items;
 
 import io.github.ultrusbot.lawofexchange.emc.EMCStorageItem;
 import io.github.ultrusbot.lawofexchange.emc.EmcController;
+import io.github.ultrusbot.lawofexchange.inventory.PlayerInventoryAccess;
 import net.fabricmc.fabric.api.tag.TagRegistry;
 import net.minecraft.block.*;
 import net.minecraft.client.item.TooltipContext;
@@ -62,6 +63,10 @@ public class HarvestGoddessBandItem extends Item implements ModeSwitchingItem, E
                 if (world.random.nextFloat() < 0.3) {
                     ((CropBlock) block.getBlock()).randomTick(block, world.getServer().getOverworld(), cur, world.getServer().getOverworld().random);
                 }
+            } else if(block.getBlock() instanceof SweetBerryBushBlock) {
+                if (world.random.nextFloat() < 0.3) {
+                    ((SweetBerryBushBlock) block.getBlock()).randomTick(block, world.getServer().getOverworld(), cur, world.getServer().getOverworld().random);
+                }
             }
         }
     }
@@ -73,7 +78,8 @@ public class HarvestGoddessBandItem extends Item implements ModeSwitchingItem, E
                 if (((CropBlock) block.getBlock()).isMature(block)) {
                     world.breakBlock(cur, true, entity);
                 }
-            } else {
+            }
+            else {
                 if (block.getBlock() instanceof FernBlock || block.getBlock() instanceof FlowerBlock) {
                     world.breakBlock(cur, true, entity);
 

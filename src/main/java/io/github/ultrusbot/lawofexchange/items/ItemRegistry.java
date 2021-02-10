@@ -1,7 +1,11 @@
 package io.github.ultrusbot.lawofexchange.items;
 
+import dev.onyxstudios.cca.api.v3.component.ComponentKey;
+import dev.onyxstudios.cca.api.v3.component.ComponentRegistryV3;
 import io.github.ultrusbot.lawofexchange.LawOfExchangeMod;
 import io.github.ultrusbot.lawofexchange.block.BlockRegistry;
+import io.github.ultrusbot.lawofexchange.components.AlchemicalBagComponent;
+import io.github.ultrusbot.lawofexchange.components.LawOfExchangeComponents;
 import io.github.ultrusbot.lawofexchange.items.armor.LoEArmorMaterials;
 import io.github.ultrusbot.lawofexchange.items.tools.InfiniteDurabilitySwordItem;
 import io.github.ultrusbot.lawofexchange.items.tools.ModeSwitchingPickaxeItem;
@@ -12,6 +16,7 @@ import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
+import net.minecraft.util.DyeColor;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 import net.minecraft.util.registry.Registry;
@@ -38,6 +43,7 @@ public class ItemRegistry {
     public static Item DARK_MATTER_BOOTS = new ArmorItem(LoEArmorMaterials.DARK_MATTER, EquipmentSlot.FEET, new Item.Settings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP));
     public static Item DARK_MATTER_SHEARS = new SpecialMatterShears(new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP));
     public static Item DARK_MATTER_FURNACE = new BlockItem(BlockRegistry.DARK_MATTER_FURNACE, new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP));
+
     //Red Matter
     public static Item RED_MATTER = new Item(new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP));
     public static Item RED_MATTER_BLOCK = new BlockItem(BlockRegistry.RED_MATTER_BLOCK, new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP));
@@ -63,6 +69,24 @@ public class ItemRegistry {
     public static Item ARCHANGELS_SMITE = new ArchangelsSmiteItem(new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP).maxCount(1));
     public static Item IGNITION_RING = new IgnitionRingItem(new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP).maxCount(1));
     public static Item GEM_OF_ETERNAL_DENSITY = new GemofEternalDensityItem(new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP).maxCount(1));
+    public static Item ENERGY_CONDENSER = new BlockItem(BlockRegistry.ENERGY_CONDENSER, new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP));
+    //Alchemical Bags
+    public static Item ALCHEMICAL_BAG_WHITE = new AlchemicalBagItem(new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP).maxCount(1), LawOfExchangeComponents.ALCHEMICAL_BAG_WHITE);
+    public static Item ALCHEMICAL_BAG_ORANGE = new AlchemicalBagItem(new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP).maxCount(1), LawOfExchangeComponents.ALCHEMICAL_BAG_ORANGE);
+    public static Item ALCHEMICAL_BAG_MAGENTA = new AlchemicalBagItem(new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP).maxCount(1), LawOfExchangeComponents.ALCHEMICAL_BAG_MAGENTA);
+    public static Item ALCHEMICAL_BAG_LIGHT_BLUE = new AlchemicalBagItem(new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP).maxCount(1), LawOfExchangeComponents.ALCHEMICAL_BAG_LIGHT_BLUE);
+    public static Item ALCHEMICAL_BAG_YELLOW = new AlchemicalBagItem(new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP).maxCount(1), LawOfExchangeComponents.ALCHEMICAL_BAG_YELLOW);
+    public static Item ALCHEMICAL_BAG_LIME = new AlchemicalBagItem(new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP).maxCount(1), LawOfExchangeComponents.ALCHEMICAL_BAG_LIME);
+    public static Item ALCHEMICAL_BAG_PINK = new AlchemicalBagItem(new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP).maxCount(1), LawOfExchangeComponents.ALCHEMICAL_BAG_PINK);
+    public static Item ALCHEMICAL_BAG_GRAY = new AlchemicalBagItem(new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP).maxCount(1), LawOfExchangeComponents.ALCHEMICAL_BAG_GRAY);
+    public static Item ALCHEMICAL_BAG_LIGHT_GRAY = new AlchemicalBagItem(new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP).maxCount(1), LawOfExchangeComponents.ALCHEMICAL_BAG_LIGHT_GRAY);
+    public static Item ALCHEMICAL_BAG_CYAN = new AlchemicalBagItem(new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP).maxCount(1), LawOfExchangeComponents.ALCHEMICAL_BAG_CYAN);
+    public static Item ALCHEMICAL_BAG_PURPLE = new AlchemicalBagItem(new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP).maxCount(1), LawOfExchangeComponents.ALCHEMICAL_BAG_PURPLE);
+    public static Item ALCHEMICAL_BAG_BLUE = new AlchemicalBagItem(new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP).maxCount(1), LawOfExchangeComponents.ALCHEMICAL_BAG_BLUE);
+    public static Item ALCHEMICAL_BAG_BROWN = new AlchemicalBagItem(new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP).maxCount(1), LawOfExchangeComponents.ALCHEMICAL_BAG_BROWN);
+    public static Item ALCHEMICAL_BAG_GREEN = new AlchemicalBagItem(new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP).maxCount(1), LawOfExchangeComponents.ALCHEMICAL_BAG_GREEN);
+    public static Item ALCHEMICAL_BAG_RED = new AlchemicalBagItem(new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP).maxCount(1), LawOfExchangeComponents.ALCHEMICAL_BAG_RED);
+    public static Item ALCHEMICAL_BAG_BLACK = new AlchemicalBagItem(new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP).maxCount(1), LawOfExchangeComponents.ALCHEMICAL_BAG_BLACK);
 
     //KLEIN STARS
     public static Item KLEIN_STAR_EIN = new KleinStarItem(50000, new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP).maxCount(1));
@@ -74,6 +98,11 @@ public class ItemRegistry {
     public static Item SOUL_STONE = new SoulStoneItem(new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP).maxCount(1));
     public static Item LIFE_STONE = new LifeStoneItem(new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP).maxCount(1));
     public static Item MIND_STONE = new MindStoneItem(new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP).maxCount(1));
+
+    //Covalence Dust
+    public static Item GREEN_COVALENCE_DUST = new Item(new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP));
+    public static Item CYAN_COVALENCE_DUST = new Item(new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP));
+    public static Item BLUE_COVALENCE_DUST = new Item(new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP));
 
     public static void register() {
         //Fuels
@@ -95,6 +124,24 @@ public class ItemRegistry {
         ARCHANGELS_SMITE = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "archangels_smite"), ARCHANGELS_SMITE);
         IGNITION_RING = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "ignition_ring"), IGNITION_RING);
         GEM_OF_ETERNAL_DENSITY = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "gem_of_eternal_density"), GEM_OF_ETERNAL_DENSITY);
+        ENERGY_CONDENSER = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "energy_condenser"), ENERGY_CONDENSER);
+
+        ALCHEMICAL_BAG_WHITE = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "white_alchemical_bag"), ALCHEMICAL_BAG_WHITE);
+        ALCHEMICAL_BAG_ORANGE = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "orange_alchemical_bag"), ALCHEMICAL_BAG_ORANGE);
+        ALCHEMICAL_BAG_MAGENTA = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "magenta_alchemical_bag"), ALCHEMICAL_BAG_MAGENTA);
+        ALCHEMICAL_BAG_LIGHT_BLUE = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "light_blue_alchemical_bag"), ALCHEMICAL_BAG_LIGHT_BLUE);
+        ALCHEMICAL_BAG_YELLOW = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "yellow_alchemical_bag"), ALCHEMICAL_BAG_YELLOW);
+        ALCHEMICAL_BAG_LIME = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "lime_alchemical_bag"), ALCHEMICAL_BAG_LIME);
+        ALCHEMICAL_BAG_PINK = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "pink_alchemical_bag"), ALCHEMICAL_BAG_PINK);
+        ALCHEMICAL_BAG_GRAY = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "gray_alchemical_bag"), ALCHEMICAL_BAG_GRAY);
+        ALCHEMICAL_BAG_LIGHT_GRAY = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "light_gray_alchemical_bag"), ALCHEMICAL_BAG_LIGHT_GRAY);
+        ALCHEMICAL_BAG_CYAN = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "cyan_alchemical_bag"), ALCHEMICAL_BAG_CYAN);
+        ALCHEMICAL_BAG_PURPLE = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "purple_alchemical_bag"), ALCHEMICAL_BAG_PURPLE);
+        ALCHEMICAL_BAG_BLUE = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "blue_alchemical_bag"), ALCHEMICAL_BAG_BLUE);
+        ALCHEMICAL_BAG_BROWN = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "brown_alchemical_bag"), ALCHEMICAL_BAG_BROWN);
+        ALCHEMICAL_BAG_GREEN = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "green_alchemical_bag"), ALCHEMICAL_BAG_GREEN);
+        ALCHEMICAL_BAG_RED = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "red_alchemical_bag"), ALCHEMICAL_BAG_RED);
+        ALCHEMICAL_BAG_BLACK = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "black_alchemical_bag"), ALCHEMICAL_BAG_BLACK);
 
         //Dark Matter
         DARK_MATTER = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "dark_matter"), DARK_MATTER);
@@ -132,6 +179,11 @@ public class ItemRegistry {
         SOUL_STONE = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "soul_stone"), SOUL_STONE);
         LIFE_STONE = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "life_stone"), LIFE_STONE);
         MIND_STONE = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "mind_stone"), MIND_STONE);
+
+        //Covalence Dust
+        GREEN_COVALENCE_DUST = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "green_covalence_dust"), GREEN_COVALENCE_DUST);
+        CYAN_COVALENCE_DUST = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "cyan_covalence_dust"), CYAN_COVALENCE_DUST);
+        BLUE_COVALENCE_DUST = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "blue_covalence_dust"), BLUE_COVALENCE_DUST);
 
         FuelRegistry.INSTANCE.add(ALCHEMICAL_COAL, 6400);
         FuelRegistry.INSTANCE.add(MOBIUS_FUEL, 25600);

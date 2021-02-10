@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "lawofexchange:block/alchemical_chest",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "lawofexchange:block/alchemical_chest"
+    },
+    "facing=south": {
+      "model": "lawofexchange:block/alchemical_chest",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "lawofexchange:block/alchemical_chest",
+      "y": 270
+    }
+  }
+}

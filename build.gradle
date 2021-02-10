@@ -10,7 +10,7 @@ archivesBaseName = project.archives_base_name
 version = project.mod_version
 group = project.maven_group
 repositories {
-    jcenter()
+    maven { url "https://maven.shedaniel.me/" }
     maven { url = 'https://jitpack.io' }
     maven {
         name = "Ladysnake Libs"
@@ -52,6 +52,10 @@ dependencies {
 
     modImplementation "io.github.cottonmc:LibGui:${project.libgui_verison}"
     include "io.github.cottonmc:LibGui:${project.libgui_verison}"
+    modApi "io.github.onyxstudios.Cardinal-Components-API:cardinal-components-base:${project.cardinal_version}"
+
+    modImplementation "io.github.onyxstudios.Cardinal-Components-API:cardinal-components-entity:${project.cardinal_version}"
+    include "io.github.onyxstudios.Cardinal-Components-API:cardinal-components-entity:${project.cardinal_version}"
 
     // PSA: Some older mods, compiled on Loom 0.2.1, might have outdated Maven POMs.
     // You may need to force-disable transitiveness on them.

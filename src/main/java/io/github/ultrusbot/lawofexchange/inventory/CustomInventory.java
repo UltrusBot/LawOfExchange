@@ -1,4 +1,4 @@
-package io.github.ultrusbot.lawofexchange.gui;
+package io.github.ultrusbot.lawofexchange.inventory;
 
 
 import net.minecraft.entity.player.PlayerEntity;

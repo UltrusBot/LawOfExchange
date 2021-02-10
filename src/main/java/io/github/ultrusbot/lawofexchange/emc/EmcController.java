@@ -62,7 +62,9 @@ final public class EmcController {
         addEMCValue(Items.SANDSTONE, 4);
         addEMCValue(Items.GRAVEL, 4);
         addEMCValue(Items.FLINT, 4);
+        addEMCValue(Items.CHARCOAL, 32);
         addEMCValue(Items.COCOA_BEANS, 64);
+        addEMCValue(Items.OBSIDIAN, 64);
         addEMCValue(Items.SPONGE, 64);
         addEMCValue(Items.WET_SPONGE, 64);
         addEMCValue(Items.PURPUR_BLOCK, 128);
@@ -85,6 +87,7 @@ final public class EmcController {
         addEMCValue(Items.IRON_INGOT, 256);
         addEMCValue(Items.LAVA_BUCKET, 832);
         addEMCValue(Items.GOLD_INGOT, 2048);
+        addEMCValue(Items.SHULKER_SHELL, 2048);
         addEMCValue(Items.DIAMOND, 8192);
         addEMCValue(Items.NETHERITE_SCRAP, 294912);
         addEMCValue(Items.GLOWSTONE_DUST, 384);

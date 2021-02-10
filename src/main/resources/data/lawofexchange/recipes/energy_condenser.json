@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ODO",
+    "DAD",
+    "ODO"
+  ],
+  "key": {
+    "A": {
+      "item": "lawofexchange:alchemical_chest"
+    },
+    "O": {
+      "item": "minecraft:obsidian"
+    },
+    "D": {
+      "item": "minecraft:diamond"
+    }
+  },
+  "result": {
+    "item": "lawofexchange:energy_condenser",
+    "count": 1
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SSS",
+    "SSS",
+    "SSC"
+
+  ],
+  "key": {
+    "S": {
+      "item": "minecraft:cobblestone"
+    },
+    "C": {
+      "item": "minecraft:charcoal"
+    }
+  },
+  "result": {
+    "item": "lawofexchange:green_covalence_dust",
+    "count": 40
+  }
+}

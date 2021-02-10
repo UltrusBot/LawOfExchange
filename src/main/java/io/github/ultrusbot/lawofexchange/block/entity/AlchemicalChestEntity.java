@@ -1,7 +1,7 @@
 package io.github.ultrusbot.lawofexchange.block.entity;
 
-import io.github.ultrusbot.lawofexchange.gui.CustomInventory;
-import io.github.ultrusbot.lawofexchange.gui.alchemical_chest.AlchemicalChestGuiDescription;
+import io.github.ultrusbot.lawofexchange.inventory.CustomInventory;
+import io.github.ultrusbot.lawofexchange.gui.alchemicalchest.AlchemicalChestGuiDescription;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
