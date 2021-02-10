@@ -14,6 +14,7 @@ import net.minecraft.entity.ExperienceOrbEntity;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.projectile.FireballEntity;
 import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -156,10 +157,11 @@ public class SwiftwolfsRendingGaleItem extends Item implements EMCStorageItem, P
         }
         if (getEMC(item) < 64) return;
         removeEMC(item, 64);
+
         SwiftwolfsRendingGaleProjectileEntity projectile = new SwiftwolfsRendingGaleProjectileEntity(world, user, 0, 0, 0);
-        projectile.setProperties(user, user.pitch, user.yaw, 0.0F, 2.0F, 1F);
-        Vec3d vec3d = user.getRotationVec(1.0F);
-        projectile.updatePosition(user.getX() + vec3d.x * 4.0D, user.getEyeY() - 1, projectile.getZ() + vec3d.z * 4.0D);
+        projectile.setProperties(user, user.pitch, user.yaw, 0.0F, 3.0F, 1.0F);
+        Vec3d vec = user.getRotationVec(1f);
+        projectile.updatePosition(user.getX() + vec.x, user.getY() + vec.y, user.getZ() + vec.z);
         world.spawnEntity(projectile);
 
         ((PlayerEntity)user).getItemCooldownManager().set(this.asItem(), 5);
