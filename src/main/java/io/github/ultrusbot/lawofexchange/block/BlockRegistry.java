@@ -7,6 +7,7 @@ import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.Material;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
@@ -21,6 +22,9 @@ public class BlockRegistry {
     public static Block MOBIUS_FUEL_BLOCK = new Block(FabricBlockSettings.copyOf(Blocks.COAL_BLOCK));
     public static Block AETERNALIS_FUEL_BLOCK = new Block(FabricBlockSettings.copyOf(Blocks.COAL_BLOCK));
     public static Block ENERGY_CONDENSER = new EnergyCondenserBlock(FabricBlockSettings.copyOf(ALCHEMICAL_CHEST));
+    public static Block INTERDICTION_TORCH = new InterdictionTorchBlock(FabricBlockSettings.of(Material.SUPPORTED).noCollision().breakInstantly().luminance(14), ParticleTypes.END_ROD);
+    public static Block INTERDICTION_WALL_TORCH = new InterdictionWallTorchBlock(FabricBlockSettings.of(Material.SUPPORTED).noCollision().breakInstantly().luminance(14), ParticleTypes.END_ROD);
+
     public static void register() {
         ALCHEMICAL_CHEST = Registry.register(Registry.BLOCK, new Identifier(LawOfExchangeMod.MOD_ID, "alchemical_chest"), ALCHEMICAL_CHEST);
         DARK_MATTER_BLOCK = Registry.register(Registry.BLOCK, new Identifier(LawOfExchangeMod.MOD_ID, "dark_matter_block"), DARK_MATTER_BLOCK);
@@ -32,6 +36,8 @@ public class BlockRegistry {
         MOBIUS_FUEL_BLOCK = Registry.register(Registry.BLOCK, new Identifier(LawOfExchangeMod.MOD_ID, "mobius_fuel_block"), MOBIUS_FUEL_BLOCK);
         AETERNALIS_FUEL_BLOCK = Registry.register(Registry.BLOCK, new Identifier(LawOfExchangeMod.MOD_ID, "aeternalis_fuel_block"), AETERNALIS_FUEL_BLOCK);
         ENERGY_CONDENSER = Registry.register(Registry.BLOCK, new Identifier(LawOfExchangeMod.MOD_ID, "energy_condenser"), ENERGY_CONDENSER);
+        INTERDICTION_TORCH = Registry.register(Registry.BLOCK, new Identifier(LawOfExchangeMod.MOD_ID, "interdiction_torch"), INTERDICTION_TORCH);
+        INTERDICTION_WALL_TORCH = Registry.register(Registry.BLOCK, new Identifier(LawOfExchangeMod.MOD_ID, "interdiction_wall_torch"), INTERDICTION_WALL_TORCH);
 
     }
 }

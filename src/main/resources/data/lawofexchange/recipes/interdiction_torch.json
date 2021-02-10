@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "RDR",
+    "DPD",
+    "GGG"
+  ],
+  "key": {
+    "R": {
+      "item": "minecraft:redstone_torch"
+    },
+    "D": {
+      "item": "minecraft:diamond"
+    },
+    "G": {
+      "item": "minecraft:glowstone_dust"
+    },
+    "P": {
+      "item": "lawofexchange:philosophers_stone"
+    }
+  },
+  "result": {
+    "item": "lawofexchange:interdiction_torch",
+    "count": 2
+  }
+}

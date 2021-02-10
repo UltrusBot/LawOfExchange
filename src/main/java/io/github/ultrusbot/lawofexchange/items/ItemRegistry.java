@@ -16,6 +16,7 @@ import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
+import net.minecraft.item.WallStandingBlockItem;
 import net.minecraft.util.DyeColor;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
@@ -70,6 +71,8 @@ public class ItemRegistry {
     public static Item IGNITION_RING = new IgnitionRingItem(new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP).maxCount(1));
     public static Item GEM_OF_ETERNAL_DENSITY = new GemofEternalDensityItem(new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP).maxCount(1));
     public static Item ENERGY_CONDENSER = new BlockItem(BlockRegistry.ENERGY_CONDENSER, new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP));
+    public static Item INTERDICTION_TORCH = new WallStandingBlockItem(BlockRegistry.INTERDICTION_TORCH, BlockRegistry.INTERDICTION_WALL_TORCH, new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP));
+
     //Alchemical Bags
     public static Item ALCHEMICAL_BAG_WHITE = new AlchemicalBagItem(new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP).maxCount(1), LawOfExchangeComponents.ALCHEMICAL_BAG_WHITE);
     public static Item ALCHEMICAL_BAG_ORANGE = new AlchemicalBagItem(new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP).maxCount(1), LawOfExchangeComponents.ALCHEMICAL_BAG_ORANGE);
@@ -125,7 +128,9 @@ public class ItemRegistry {
         IGNITION_RING = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "ignition_ring"), IGNITION_RING);
         GEM_OF_ETERNAL_DENSITY = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "gem_of_eternal_density"), GEM_OF_ETERNAL_DENSITY);
         ENERGY_CONDENSER = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "energy_condenser"), ENERGY_CONDENSER);
+        INTERDICTION_TORCH = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "interdiction_torch"), INTERDICTION_TORCH);
 
+        //Alchemical Bags
         ALCHEMICAL_BAG_WHITE = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "white_alchemical_bag"), ALCHEMICAL_BAG_WHITE);
         ALCHEMICAL_BAG_ORANGE = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "orange_alchemical_bag"), ALCHEMICAL_BAG_ORANGE);
         ALCHEMICAL_BAG_MAGENTA = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "magenta_alchemical_bag"), ALCHEMICAL_BAG_MAGENTA);

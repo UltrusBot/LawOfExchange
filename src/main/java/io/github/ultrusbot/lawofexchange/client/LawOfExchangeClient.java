@@ -43,6 +43,9 @@ public class LawOfExchangeClient implements ClientModInitializer {
         KeybindRegistry.register();
         EntityRendererRegistry.INSTANCE.register(EntityTypeRegistry.SWRG_ENTITY_TYPE, (dispatcher, context) -> new SWRGEntityRenderer(dispatcher));
         BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.ENERGY_CONDENSER, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.INTERDICTION_TORCH, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.INTERDICTION_WALL_TORCH, RenderLayer.getCutout());
+
         ClientSidePacketRegistry.INSTANCE.register(CustomEntitySpawnS2CPacket.LOW_ENTITY_SPAWN_PACKET, (CustomEntitySpawnS2CPacket::readPacket));
     }
 }
