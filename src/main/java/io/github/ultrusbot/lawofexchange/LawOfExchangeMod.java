@@ -3,14 +3,11 @@ package io.github.ultrusbot.lawofexchange;
 import io.github.ultrusbot.lawofexchange.block.BlockRegistry;
 import io.github.ultrusbot.lawofexchange.block.entity.BlockEntityRegistry;
 import io.github.ultrusbot.lawofexchange.command.setEMCCommand;
-import io.github.ultrusbot.lawofexchange.config.PhilosopherStoneConfig;
 import io.github.ultrusbot.lawofexchange.emc.EmcController;
 import io.github.ultrusbot.lawofexchange.entity.EntityTypeRegistry;
 import io.github.ultrusbot.lawofexchange.gui.GUIRegistry;
 import io.github.ultrusbot.lawofexchange.items.ItemRegistry;
 import io.github.ultrusbot.lawofexchange.network.CustomKeybindPackets;
-import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
-import me.sargunvohra.mcmods.autoconfig1u.serializer.GsonConfigSerializer;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.fabric.api.command.v1.CommandRegistrationCallback;
@@ -32,7 +29,6 @@ public class LawOfExchangeMod implements ModInitializer {
         BlockRegistry.register();
         BlockEntityRegistry.register();
         GUIRegistry.register();
-        AutoConfig.register(PhilosopherStoneConfig.class, GsonConfigSerializer::new);
         EntityTypeRegistry.register();
         CustomKeybindPackets.readKeybindPacket();
         ServerLifecycleEvents.SERVER_STARTED.register((MinecraftServer server) -> {

@@ -7,6 +7,7 @@ import io.github.ultrusbot.lawofexchange.block.BlockRegistry;
 import io.github.ultrusbot.lawofexchange.components.AlchemicalBagComponent;
 import io.github.ultrusbot.lawofexchange.components.LawOfExchangeComponents;
 import io.github.ultrusbot.lawofexchange.items.armor.LoEArmorMaterials;
+import io.github.ultrusbot.lawofexchange.items.tools.InfiniteDurabilityAxeItem;
 import io.github.ultrusbot.lawofexchange.items.tools.InfiniteDurabilitySwordItem;
 import io.github.ultrusbot.lawofexchange.items.tools.ModeSwitchingPickaxeItem;
 import io.github.ultrusbot.lawofexchange.items.tools.SpecialMatterShears;
@@ -37,12 +38,13 @@ public class ItemRegistry {
     public static Item DARK_MATTER = new Item(new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP));
     public static Item DARK_MATTER_BLOCK = new BlockItem(BlockRegistry.DARK_MATTER_BLOCK, new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP));
     public static Item DARK_MATTER_PICKAXE = new ModeSwitchingPickaxeItem(CustomToolMaterials.DARK_MATTER, 1, -2.8F, new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP), 16);
+    public static Item DARK_MATTER_AXE = new InfiniteDurabilityAxeItem(CustomToolMaterials.DARK_MATTER, 8, -3.0F, new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP));
     public static Item DARK_MATTER_SWORD = new InfiniteDurabilitySwordItem(CustomToolMaterials.DARK_MATTER, 6, -2.4F, new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP));
     public static Item DARK_MATTER_HELMET = new ArmorItem(LoEArmorMaterials.DARK_MATTER, EquipmentSlot.HEAD, new Item.Settings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP));
     public static Item DARK_MATTER_CHESTPLATE = new ArmorItem(LoEArmorMaterials.DARK_MATTER, EquipmentSlot.CHEST, new Item.Settings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP));
     public static Item DARK_MATTER_LEGGINGS = new ArmorItem(LoEArmorMaterials.DARK_MATTER, EquipmentSlot.LEGS, new Item.Settings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP));
     public static Item DARK_MATTER_BOOTS = new ArmorItem(LoEArmorMaterials.DARK_MATTER, EquipmentSlot.FEET, new Item.Settings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP));
-    public static Item DARK_MATTER_SHEARS = new SpecialMatterShears(new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP));
+    public static Item DARK_MATTER_SHEARS = new SpecialMatterShears(new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP).maxCount(1));
     public static Item DARK_MATTER_FURNACE = new BlockItem(BlockRegistry.DARK_MATTER_FURNACE, new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP));
 
     //Red Matter
@@ -50,6 +52,7 @@ public class ItemRegistry {
     public static Item RED_MATTER_BLOCK = new BlockItem(BlockRegistry.RED_MATTER_BLOCK, new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP));
     public static Item RED_MATTER_SWORD = new InfiniteDurabilitySwordItem(CustomToolMaterials.RED_MATTER, 6, -2.4F, new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP));
     public static Item RED_MATTER_PICKAXE = new ModeSwitchingPickaxeItem(CustomToolMaterials.RED_MATTER, 1, -2.8F, new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP), 32);
+    public static Item RED_MATTER_SHEARS = new SpecialMatterShears(new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP).maxCount(1));
 
     //Exotic Matter
     public static Item EXOTIC_MATTER = new Item(new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP));
@@ -152,6 +155,7 @@ public class ItemRegistry {
         DARK_MATTER = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "dark_matter"), DARK_MATTER);
         DARK_MATTER_BLOCK = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "dark_matter_block"), DARK_MATTER_BLOCK);
         DARK_MATTER_PICKAXE = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "dark_matter_pickaxe"), DARK_MATTER_PICKAXE);
+        DARK_MATTER_AXE = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "dark_matter_axe"), DARK_MATTER_AXE);
         DARK_MATTER_SWORD = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "dark_matter_sword"), DARK_MATTER_SWORD);
         DARK_MATTER_HELMET = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "dark_matter_helmet"), DARK_MATTER_HELMET);
         DARK_MATTER_CHESTPLATE = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "dark_matter_chestplate"), DARK_MATTER_CHESTPLATE);
@@ -165,6 +169,7 @@ public class ItemRegistry {
         RED_MATTER_SWORD = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "red_matter_sword"), RED_MATTER_SWORD);
         RED_MATTER_PICKAXE = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "red_matter_pickaxe"), RED_MATTER_PICKAXE);
         RED_MATTER_BLOCK = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "red_matter_block"), RED_MATTER_BLOCK);
+        RED_MATTER_SHEARS = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "red_matter_shears"), RED_MATTER_SHEARS);
 
         //Exotic Matter
         EXOTIC_MATTER = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "exotic_matter"), EXOTIC_MATTER);

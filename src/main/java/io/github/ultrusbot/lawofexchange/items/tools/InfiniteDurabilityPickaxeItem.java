@@ -28,4 +28,8 @@ public class InfiniteDurabilityPickaxeItem extends PickaxeItem {
         return false;
     }
 
+    @Override
+    public boolean isEnchantable(ItemStack stack) {
+        return false;
+    }
 }

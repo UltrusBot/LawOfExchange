@@ -1,0 +1,6 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "lawofexchange:item/dark_matter_shears"
+  }
+}
