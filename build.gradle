@@ -29,19 +29,7 @@ dependencies {
 
     // Fabric API. This is technically optional, but you probably want it anyway.
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
-    include("me.shedaniel.cloth:config-2:${project.cloth_version}")
-    include("me.sargunvohra.mcmods:autoconfig1u:${project.autoconfig_version}")
 
-    modApi("me.shedaniel.cloth:config-2:${project.cloth_version}") {
-        exclude(group: "net.fabricmc.fabric-api")
-    }
-
-    modApi("io.github.prospector:modmenu:${project.mod_menu_version}") {
-        exclude(group: "net.fabricmc.fabric-api")
-    }
-    modApi("me.sargunvohra.mcmods:autoconfig1u:${project.autoconfig_version}") {
-        exclude(group: "net.fabricmc.fabric-api")
-    }
     modApi ("me.shedaniel.cloth.api:cloth-durability-bar-api-v1:${project.cloth_api_version}") {
         exclude(group: "net.fabricmc.fabric-api")
     }
