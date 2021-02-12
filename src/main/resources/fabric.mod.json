@@ -12,9 +12,6 @@
   "icon": "assets/lawofexchange/icon.png",
   "environment": "*",
   "entrypoints": {
-    "modmenu": [
-      "io.github.ultrusbot.lawofexchange.config.LawOfExchangeModMenu"
-    ],
     "client": [
       "io.github.ultrusbot.lawofexchange.client.LawOfExchangeClient"
     ],
