@@ -1,16 +1,10 @@
 package io.github.ultrusbot.lawofexchange.items;
 
-import dev.onyxstudios.cca.api.v3.component.ComponentKey;
-import dev.onyxstudios.cca.api.v3.component.ComponentRegistryV3;
 import io.github.ultrusbot.lawofexchange.LawOfExchangeMod;
 import io.github.ultrusbot.lawofexchange.block.BlockRegistry;
-import io.github.ultrusbot.lawofexchange.components.AlchemicalBagComponent;
 import io.github.ultrusbot.lawofexchange.components.LawOfExchangeComponents;
 import io.github.ultrusbot.lawofexchange.items.armor.LoEArmorMaterials;
-import io.github.ultrusbot.lawofexchange.items.tools.InfiniteDurabilityAxeItem;
-import io.github.ultrusbot.lawofexchange.items.tools.InfiniteDurabilitySwordItem;
-import io.github.ultrusbot.lawofexchange.items.tools.ModeSwitchingPickaxeItem;
-import io.github.ultrusbot.lawofexchange.items.tools.SpecialMatterShears;
+import io.github.ultrusbot.lawofexchange.items.tools.*;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.minecraft.entity.EquipmentSlot;
@@ -18,7 +12,6 @@ import net.minecraft.item.ArmorItem;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.WallStandingBlockItem;
-import net.minecraft.util.DyeColor;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 import net.minecraft.util.registry.Registry;
@@ -98,6 +91,9 @@ public class ItemRegistry {
     public static Item KLEIN_STAR_EIN = new KleinStarItem(50000, new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP).maxCount(1));
     public static Item KLEIN_STAR_ZWEI = new KleinStarItem(200000, new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP).maxCount(1));
     public static Item KLEIN_STAR_DREI = new KleinStarItem(800000, new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP).maxCount(1));
+    public static Item KLEIN_STAR_VIER = new KleinStarItem(3200000, new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP).maxCount(1));
+    public static Item KLEIN_STAR_SPHERE = new KleinStarItem(12800000 , new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP).maxCount(1));
+    public static Item KLEIN_STAR_OMEGA = new KleinStarItem( 51200000, new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP).maxCount(1));
 
     //Stones
     public static Item BODY_STONE = new BodyStoneItem(new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP).maxCount(1));
@@ -183,6 +179,9 @@ public class ItemRegistry {
         KLEIN_STAR_EIN = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "klein_star_ein"), KLEIN_STAR_EIN);
         KLEIN_STAR_ZWEI = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "klein_star_zwei"), KLEIN_STAR_ZWEI);
         KLEIN_STAR_DREI = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "klein_star_drei"), KLEIN_STAR_DREI);
+        KLEIN_STAR_VIER = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "klein_star_vier"), KLEIN_STAR_VIER);
+        KLEIN_STAR_SPHERE = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "klein_star_sphere"), KLEIN_STAR_SPHERE);
+        KLEIN_STAR_OMEGA = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "klein_star_omega"), KLEIN_STAR_OMEGA);
 
         //Stones
         BODY_STONE = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "body_stone"), BODY_STONE);

@@ -38,7 +38,7 @@ public class MindStoneItem extends Item {
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        tooltip.add(Text.of("§aXP: " + getExp(stack)));
+        tooltip.add(Text.of("§aXP: §r" + getExp(stack)));
         super.appendTooltip(stack, world, tooltip, context);
 
     }

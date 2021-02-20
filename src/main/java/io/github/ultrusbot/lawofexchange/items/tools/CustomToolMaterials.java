@@ -1,5 +1,6 @@
-package io.github.ultrusbot.lawofexchange.items;
+package io.github.ultrusbot.lawofexchange.items.tools;
 
+import io.github.ultrusbot.lawofexchange.items.ItemRegistry;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.util.Lazy;
@@ -7,10 +8,10 @@ import net.minecraft.util.Lazy;
 import java.util.function.Supplier;
 
 public enum CustomToolMaterials implements ToolMaterial {
-    DARK_MATTER(4, 9999, 15.0F, 5.0F, 20, () -> {
+    DARK_MATTER(4, 9999, 15.0F, 5.0F, 0, () -> {
         return Ingredient.ofItems(ItemRegistry.DARK_MATTER);
     }),
-    RED_MATTER(5, 9999, 20.0F, 7.0F, 30, () -> {
+    RED_MATTER(5, 9999, 20.0F, 7.0F, 0, () -> {
         return Ingredient.ofItems(ItemRegistry.DARK_MATTER);
     });;
 
