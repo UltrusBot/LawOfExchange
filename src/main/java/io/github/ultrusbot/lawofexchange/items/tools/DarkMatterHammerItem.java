@@ -22,7 +22,7 @@ public class DarkMatterHammerItem extends InfiniteDurabilityPickaxeItem implemen
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
         int mode = 3 + 2 * getMode(stack);
-        tooltip.add(Text.of(mode + " x " + mode));
+        tooltip.add(Text.of("§7§o" + mode + " x " + mode));
         super.appendTooltip(stack, world, tooltip, context);
     }
 
