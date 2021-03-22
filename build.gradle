@@ -20,6 +20,12 @@ repositories {
         name = "CottonMC"
         url = "https://server.bbkr.space/artifactory/libs-release"
     }
+    maven {
+        url "https://maven.jamieswhiteshirt.com/libs-release"
+        content {
+            includeGroup "com.jamieswhiteshirt"
+        }
+    }
 }
 dependencies {
     //to change the versions see the gradle.properties file
@@ -29,9 +35,19 @@ dependencies {
 
     // Fabric API. This is technically optional, but you probably want it anyway.
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
-
+    include("me.shedaniel.cloth:cloth-config:${project.cloth_config_version}:fabric")
+    modApi("me.shedaniel.cloth:cloth-config:${project.cloth_config_version}:fabric") {
+        exclude(group: "net.fabricmc.fabric-api")
+    }
     modApi ("me.shedaniel.cloth.api:cloth-durability-bar-api-v1:${project.cloth_api_version}") {
         exclude(group: "net.fabricmc.fabric-api")
+    }
+    include modImplementation("com.jamieswhiteshirt:reach-entity-attributes:${project.rea_version}")
+
+    include "com.github.Draylar:magna:${project.magna_version}"
+    modImplementation ("com.github.Draylar:magna:${project.magna_version}") {
+        exclude group: "net.fabricmc"
+        exclude group: "me.shedaniel.cloth"
     }
     include "me.shedaniel.cloth.api:cloth-durability-bar-api-v1:${project.cloth_api_version}"
 
