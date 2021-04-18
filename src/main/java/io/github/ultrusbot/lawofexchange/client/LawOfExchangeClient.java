@@ -3,6 +3,8 @@ package io.github.ultrusbot.lawofexchange.client;
 import io.github.ultrusbot.lawofexchange.LawOfExchangeMod;
 import io.github.ultrusbot.lawofexchange.block.BlockRegistry;
 import io.github.ultrusbot.lawofexchange.block.entity.BlockEntityRegistry;
+import io.github.ultrusbot.lawofexchange.client.render.entity.NovaCataclysmRenderer;
+import io.github.ultrusbot.lawofexchange.client.render.entity.NovaCatalystRenderer;
 import io.github.ultrusbot.lawofexchange.client.render.entity.SWRGEntityRenderer;
 import io.github.ultrusbot.lawofexchange.entity.EntityTypeRegistry;
 import io.github.ultrusbot.lawofexchange.gui.AlchemicalContainerScreen;
@@ -42,6 +44,9 @@ public class LawOfExchangeClient implements ClientModInitializer {
 
         KeybindRegistry.register();
         EntityRendererRegistry.INSTANCE.register(EntityTypeRegistry.SWRG_ENTITY_TYPE, (dispatcher, context) -> new SWRGEntityRenderer(dispatcher));
+        EntityRendererRegistry.INSTANCE.register(EntityTypeRegistry.NOVA_CATALYST, (dispatcher, context) -> new NovaCatalystRenderer(dispatcher));
+        EntityRendererRegistry.INSTANCE.register(EntityTypeRegistry.NOVA_CATACLYSM, (dispatcher, context) -> new NovaCataclysmRenderer(dispatcher));
+
         BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.ENERGY_CONDENSER, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.INTERDICTION_TORCH, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.INTERDICTION_WALL_TORCH, RenderLayer.getCutout());

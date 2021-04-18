@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "top": "lawofexchange:block/nova_cataclysm_top",
+    "bottom": "lawofexchange:block/nova_cataclysm_bottom",
+    "side": "lawofexchange:block/nova_cataclysm_side"
+  }
+}

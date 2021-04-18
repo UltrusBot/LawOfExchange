@@ -8,6 +8,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.Material;
 import net.minecraft.particle.ParticleTypes;
+import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
@@ -24,6 +25,8 @@ public class BlockRegistry {
     public static Block ENERGY_CONDENSER = new EnergyCondenserBlock(FabricBlockSettings.copyOf(ALCHEMICAL_CHEST));
     public static Block INTERDICTION_TORCH = new InterdictionTorchBlock(FabricBlockSettings.of(Material.SUPPORTED).noCollision().breakInstantly().luminance(14), ParticleTypes.END_ROD);
     public static Block INTERDICTION_WALL_TORCH = new InterdictionWallTorchBlock(FabricBlockSettings.of(Material.SUPPORTED).noCollision().breakInstantly().luminance(14), ParticleTypes.END_ROD);
+    public static Block NOVA_CATALYST = new NovaCatalystBlock(FabricBlockSettings.of(Material.TNT).breakInstantly().sounds(BlockSoundGroup.GRASS));
+    public static Block NOVA_CATACLYSM = new NovaCataclysmBlock(FabricBlockSettings.of(Material.TNT).breakInstantly().sounds(BlockSoundGroup.GRASS));
 
     public static void register() {
         ALCHEMICAL_CHEST = Registry.register(Registry.BLOCK, new Identifier(LawOfExchangeMod.MOD_ID, "alchemical_chest"), ALCHEMICAL_CHEST);
@@ -38,6 +41,8 @@ public class BlockRegistry {
         ENERGY_CONDENSER = Registry.register(Registry.BLOCK, new Identifier(LawOfExchangeMod.MOD_ID, "energy_condenser"), ENERGY_CONDENSER);
         INTERDICTION_TORCH = Registry.register(Registry.BLOCK, new Identifier(LawOfExchangeMod.MOD_ID, "interdiction_torch"), INTERDICTION_TORCH);
         INTERDICTION_WALL_TORCH = Registry.register(Registry.BLOCK, new Identifier(LawOfExchangeMod.MOD_ID, "interdiction_wall_torch"), INTERDICTION_WALL_TORCH);
+        NOVA_CATALYST = Registry.register(Registry.BLOCK, new Identifier(LawOfExchangeMod.MOD_ID, "nova_catalyst"), NOVA_CATALYST);
+        NOVA_CATACLYSM = Registry.register(Registry.BLOCK, new Identifier(LawOfExchangeMod.MOD_ID, "nova_cataclysm"), NOVA_CATACLYSM);
 
     }
 }

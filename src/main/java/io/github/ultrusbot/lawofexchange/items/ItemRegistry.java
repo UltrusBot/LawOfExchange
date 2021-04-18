@@ -70,6 +70,8 @@ public class ItemRegistry {
     public static Item GEM_OF_ETERNAL_DENSITY = new GemofEternalDensityItem(new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP).maxCount(1));
     public static Item ENERGY_CONDENSER = new BlockItem(BlockRegistry.ENERGY_CONDENSER, new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP));
     public static Item INTERDICTION_TORCH = new WallStandingBlockItem(BlockRegistry.INTERDICTION_TORCH, BlockRegistry.INTERDICTION_WALL_TORCH, new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP));
+    public static Item NOVA_CATALYST = new BlockItem(BlockRegistry.NOVA_CATALYST, new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP));
+    public static Item NOVA_CATACLYSM = new BlockItem(BlockRegistry.NOVA_CATACLYSM, new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP));
 
     //Alchemical Bags
     public static Item ALCHEMICAL_BAG_WHITE = new AlchemicalBagItem(new FabricItemSettings().group(LawOfExchangeMod.PHILOSOPHERS_STONE_ITEM_GROUP).maxCount(1), LawOfExchangeComponents.ALCHEMICAL_BAG_WHITE);
@@ -116,7 +118,8 @@ public class ItemRegistry {
         ALCHEMICAL_COAL_BLOCK = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "alchemical_coal_block"), ALCHEMICAL_COAL_BLOCK);
         MOBIUS_FUEL_BLOCK = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "mobius_fuel_block"), MOBIUS_FUEL_BLOCK);
         AETERNALIS_FUEL_BLOCK = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "aeternalis_fuel_block"), AETERNALIS_FUEL_BLOCK);
-        //
+
+        //Other
         PHILOSOPHERS_STONE = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "philosophers_stone"), PHILOSOPHERS_STONE);
         ALCHEMICAL_CHEST = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "alchemical_chest"), ALCHEMICAL_CHEST);
         TRANSMUTATION_TABLE = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "transmutation_table"), TRANSMUTATION_TABLE);
@@ -130,6 +133,8 @@ public class ItemRegistry {
         GEM_OF_ETERNAL_DENSITY = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "gem_of_eternal_density"), GEM_OF_ETERNAL_DENSITY);
         ENERGY_CONDENSER = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "energy_condenser"), ENERGY_CONDENSER);
         INTERDICTION_TORCH = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "interdiction_torch"), INTERDICTION_TORCH);
+        NOVA_CATALYST = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "nova_catalyst"), NOVA_CATALYST);
+        NOVA_CATACLYSM = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "nova_cataclysm"), NOVA_CATACLYSM);
 
         //Alchemical Bags
         ALCHEMICAL_BAG_WHITE = Registry.register(Registry.ITEM, new Identifier(MOD_ID, "white_alchemical_bag"), ALCHEMICAL_BAG_WHITE);
