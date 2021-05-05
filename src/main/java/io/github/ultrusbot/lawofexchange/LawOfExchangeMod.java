@@ -2,7 +2,6 @@ package io.github.ultrusbot.lawofexchange;
 
 import io.github.ultrusbot.lawofexchange.block.BlockRegistry;
 import io.github.ultrusbot.lawofexchange.block.entity.BlockEntityRegistry;
-import io.github.ultrusbot.lawofexchange.command.setEMCCommand;
 import io.github.ultrusbot.lawofexchange.emc.EmcController;
 import io.github.ultrusbot.lawofexchange.entity.EntityTypeRegistry;
 import io.github.ultrusbot.lawofexchange.gui.GUIRegistry;
@@ -10,7 +9,6 @@ import io.github.ultrusbot.lawofexchange.items.ItemRegistry;
 import io.github.ultrusbot.lawofexchange.network.CustomKeybindPackets;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
-import net.fabricmc.fabric.api.command.v1.CommandRegistrationCallback;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
@@ -35,13 +33,13 @@ public class LawOfExchangeMod implements ModInitializer {
             EmcController.loadEMCConfig();
             EmcController.tagsToEMC();
             EmcController.generateRecipeEmc(server);
-            EmcController.generateRecipeEmc(server);
-            EmcController.generateRecipeEmc(server);
-//            EMC_Controller.printEMC();
         });
-        CommandRegistrationCallback.EVENT.register((dispatcher, dedicated) -> {
-            setEMCCommand.register(dispatcher);
-        });
+        ServerLifecycleEvents.END_DATA_PACK_RELOAD.register(((server, serverResourceManager, success) -> {
+            EmcController.loadEMCConfig();
+            EmcController.tagsToEMC();
+            EmcController.generateRecipeEmc(server);
+
+        }));
     }
 
 }
