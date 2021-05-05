@@ -19,11 +19,13 @@ public class NovaCatalystEntity extends Entity {
     @Nullable
     public LivingEntity causingEntity;
     public int fuseTimer;
+    public float explosionPower;
 
     public NovaCatalystEntity(EntityType<? extends NovaCatalystEntity> entityType, World world) {
         super(entityType, world);
         this.fuseTimer = 80;
         this.inanimate = true;
+        this.explosionPower = 20f;
     }
 
     public NovaCatalystEntity(World world, double x, double y, double z, @Nullable LivingEntity igniter) {
@@ -77,7 +79,7 @@ public class NovaCatalystEntity extends Entity {
     }
 
     private void explode() {
-        this.world.createExplosion(this, this.getX(), this.getBodyY(0.0625D), this.getZ(), 20.0F, Explosion.DestructionType.BREAK);
+        this.world.createExplosion(this, this.getX(), this.getBodyY(0.0625D), this.getZ(), this.explosionPower, Explosion.DestructionType.BREAK);
     }
 
     protected void writeCustomDataToTag(CompoundTag tag) {

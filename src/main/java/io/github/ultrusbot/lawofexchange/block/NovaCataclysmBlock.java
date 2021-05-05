@@ -1,7 +1,6 @@
 package io.github.ultrusbot.lawofexchange.block;
 
 import io.github.ultrusbot.lawofexchange.entity.explosives.NovaCataclysmEntity;
-import io.github.ultrusbot.lawofexchange.entity.explosives.NovaCatalystEntity;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;

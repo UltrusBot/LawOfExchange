@@ -34,7 +34,7 @@ public class NovaCataclysmRenderer extends EntityRenderer<NovaCataclysmEntity> {
         matrixStack.multiply(Vector3f.POSITIVE_Y.getDegreesQuaternion(-90.0F));
         matrixStack.translate(-0.5D, -0.5D, 0.5D);
         matrixStack.multiply(Vector3f.POSITIVE_Y.getDegreesQuaternion(90.0F));
-        TntMinecartEntityRenderer.renderFlashingBlock(BlockRegistry.NOVA_CATALYST.getDefaultState(), matrixStack, vertexConsumerProvider, i, novaCataclysmEntity.getFuseTimer() / 5 % 2 == 0);
+        TntMinecartEntityRenderer.renderFlashingBlock(BlockRegistry.NOVA_CATACLYSM.getDefaultState(), matrixStack, vertexConsumerProvider, i, novaCataclysmEntity.getFuseTimer() / 5 % 2 == 0);
         matrixStack.pop();
         super.render(novaCataclysmEntity, f, g, matrixStack, vertexConsumerProvider, i);
     }
